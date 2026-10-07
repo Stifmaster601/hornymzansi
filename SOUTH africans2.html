@@ -29,6 +29,7 @@ body {
   color: var(--text-main);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
+  padding-bottom: 80px; /* Space for sticky popup ad */
 }
 
 a {
@@ -235,11 +236,69 @@ hr {
   margin: 20px 0;
 }
 
-/* Ad Container */
+/* Ad Containers */
 .ad-container {
   max-width: 728px;
   margin: 20px auto;
   text-align: center;
+}
+
+/* Bottom Pagination & Next Button */
+.pagination-container {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.next-btn {
+  display: inline-block;
+  background: var(--accent-red);
+  color: white;
+  padding: 14px 36px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
+  transition: all 0.3s ease;
+}
+
+.next-btn:hover {
+  background: var(--accent-red-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(229, 9, 20, 0.6);
+}
+
+/* Timed Popup Ad Banner */
+#timed-popup-banner {
+  position: fixed;
+  bottom: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  background: var(--bg-card);
+  border: 2px solid var(--accent-red);
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+  transition: bottom 0.5s ease-in-out;
+  text-align: center;
+}
+
+#timed-popup-banner.show {
+  bottom: 20px;
+}
+
+.close-popup {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: var(--accent-red);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 @media(max-width: 768px) {
@@ -266,7 +325,7 @@ hr {
 
 <hr>
 
-<!-- Top Adsterra Ad Unit Slot -->
+<!-- Ad 1: Top Ad Slot -->
 <div class="ad-container">
   <script type="text/javascript">
     atOptions = {
@@ -317,6 +376,20 @@ hr {
 
 <hr>
 
+<!-- Ad 2: Mid-page Ad Slot -->
+<div class="ad-container">
+  <script type="text/javascript">
+    atOptions = {
+        'key' : '67eaed8f6ec713b1d2a9288be19c8222',
+        'format' : 'iframe',
+        'height' : 90,
+        'width' : 728,
+        'params' : {}
+    };
+  </script>
+  <script type="text/javascript" src="//www.topcreativeformat.com/67eaed8f6ec713b1d2a9288be19c8222/invoke.js"></script>
+</div>
+
 <h4>I ALSO <lerato>LOVE</lerato> Mzansi</h4>
 
 <!-- Video Showcase Section -->
@@ -348,7 +421,21 @@ hr {
 
 <hr>
 
-<!-- Second Photo Gallery Section (Empty Frames Removed) -->
+<!-- Ad 3: Video-section Ad Slot -->
+<div class="ad-container">
+  <script type="text/javascript">
+    atOptions = {
+        'key' : '67eaed8f6ec713b1d2a9288be19c8222',
+        'format' : 'iframe',
+        'height' : 90,
+        'width' : 728,
+        'params' : {}
+    };
+  </script>
+  <script type="text/javascript" src="//www.topcreativeformat.com/67eaed8f6ec713b1d2a9288be19c8222/invoke.js"></script>
+</div>
+
+<!-- Second Photo Gallery Section -->
 <div class="gallery-grid">
   <a href="20230927_131738.jpg"><img src="20230927_131738.jpg" alt="photo"></a>
   <a href="20230927_131644.jpg"><img src="20230927_131644.jpg" alt="photo"></a>
@@ -362,6 +449,62 @@ hr {
   <a href="20231011_232633.jpg"><img src="20231011_232633.jpg" alt="photo"></a>
   <a href="20231011_225131.jpg"><img src="20231011_225131.jpg" alt="photo"></a>
 </div>
+
+<hr>
+
+<!-- Ad 4: Bottom Ad Slot Above Pagination -->
+<div class="ad-container">
+  <script type="text/javascript">
+    atOptions = {
+        'key' : '67eaed8f6ec713b1d2a9288be19c8222',
+        'format' : 'iframe',
+        'height' : 90,
+        'width' : 728,
+        'params' : {}
+    };
+  </script>
+  <script type="text/javascript" src="//www.topcreativeformat.com/67eaed8f6ec713b1d2a9288be19c8222/invoke.js"></script>
+</div>
+
+<!-- Bottom Next Button Pagination -->
+<div class="pagination-container">
+  <a href="SOUTH africans3.html" class="next-btn">NEXT PAGE ➔</a>
+</div>
+
+<!-- Timed Pop-up Banner Ad (Every 30 seconds for 1 minute) -->
+<div id="timed-popup-banner">
+  <button class="close-popup" onclick="document.getElementById('timed-popup-banner').classList.remove('show');">&times;</button>
+  <script type="text/javascript">
+    atOptions = {
+        'key' : '67eaed8f6ec713b1d2a9288be19c8222',
+        'format' : 'iframe',
+        'height' : 90,
+        'width' : 728,
+        'params' : {}
+    };
+  </script>
+  <script type="text/javascript" src="//www.topcreativeformat.com/67eaed8f6ec713b1d2a9288be19c8222/invoke.js"></script>
+</div>
+
+<script>
+// Logic to show popup every 30 seconds and keep it visible for 1 minute
+function initTimedPopup() {
+  const popup = document.getElementById('timed-popup-banner');
+  
+  function triggerPopup() {
+    popup.classList.add('show');
+    // Disappear after 1 minute (60000 milliseconds)
+    setTimeout(() => {
+      popup.classList.remove('show');
+    }, 60000);
+  }
+
+  // Trigger first time after 30 seconds, then repeat every 30 seconds
+  setInterval(triggerPopup, 30000);
+}
+
+window.onload = initTimedPopup;
+</script>
 
 </body>
 </html>
