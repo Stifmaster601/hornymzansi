@@ -1,87 +1,417 @@
-<!doctype html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HornyPlayers.com / Under Construction</title>
 
-
-
-<style> 
-
-body{background-image:  ; }
-
-
-#lemon{background:black; color:red;
-border:2px solid red;}
-
-
-
-
-#lemonade{background:gray; border : 2px solid yellow;}
-
-
-
-#lastlast{background:#778478; color:blue;}
-
-but{text-shadow:white 2px 2px;}
-
-#paa{text-shadow:yellow 1px 1px;
-      
-      border:1px dotted green;
-      
-     
+<style>
+:root {
+  --bg-primary: #0a0a0a;
+  --bg-card: #181818;
+  --accent-red: #e50914;
+  --accent-red-hover: #f40612;
+  --accent-yellow: #ffcc00;
+  --text-main: #ffffff;
+  --text-muted: #b3b3b3;
+  --border-color: #282828;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
 
-#paar{border:0.5px solid orange;}
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 15px;
+}
 
-#foo{border:1px dotted brown;
-      border-radius:3px;}
-      
-     #scoo{background:gray; } 
-      
+.wrapper {
+  width: 100%;
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Under Construction Box */
+#lemon {
+  background: var(--bg-card);
+  color: var(--accent-red);
+  border: 2px solid var(--accent-red);
+  padding: 25px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(229, 9, 20, 0.2);
+}
+
+#scoo {
+  font-size: 24px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: none;
+  color: var(--accent-red);
+}
+
+#paa {
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+  margin: 15px 0 10px 0;
+  font-size: 16px;
+}
+
+.construction-img {
+  width: 55px;
+  height: 55px;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Navigation / Back Box */
+#lemonade {
+  background: var(--bg-card);
+  border: 2px solid var(--accent-yellow);
+  padding: 20px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(255, 204, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+#lemonade:hover {
+  transform: translateY(-2px);
+}
+
+but {
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  color: var(--accent-yellow);
+  font-size: 22px;
+}
+
+#paar {
+  color: var(--text-muted);
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+/* Fake Download Buttons Section */
+.download-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 20px;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.download-section h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: var(--text-main);
+}
+
+.fake-download-btn {
+  display: block;
+  width: 100%;
+  background: linear-gradient(135deg, #00b09b, #96c93d);
+  color: white;
+  padding: 14px;
+  margin: 10px 0;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 176, 155, 0.4);
+  transition: all 0.3s ease;
+}
+
+.fake-download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 176, 155, 0.6);
+}
+
+.fake-download-btn.alt {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  box-shadow: 0 4px 15px rgba(255, 65, 108, 0.4);
+}
+
+.fake-download-btn.alt:hover {
+  box-shadow: 0 6px 20px rgba(255, 65, 108, 0.6);
+}
+
+/* Playable Video-Card Style Ad Wrappers */
+.ad-video-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.ad-video-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-red);
+}
+
+.ad-video-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background: rgba(0,0,0,0.4);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.ad-badge {
+  background: var(--accent-red);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.ad-player-screen {
+  position: relative;
+  width: 100%;
+  min-height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  overflow: hidden;
+}
+
+.ad-player-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+.play-button-circle {
+  width: 45px;
+  height: 45px;
+  background: rgba(229, 9, 20, 0.85);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 15px rgba(229, 9, 20, 0.6);
+  transition: transform 0.2s ease;
+}
+
+.play-button-circle::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 14px solid white;
+  margin-left: 3px;
+}
+
+.ad-video-card:hover .play-button-circle {
+  transform: scale(1.1);
+  background: var(--accent-red);
+}
+
+/* Social & Stay Tuned Section */
+#lastlast {
+  background: #121512;
+  color: #4da6ff;
+  border: 1px solid #283828;
+  padding: 20px;
+  border-radius: 14px;
+  text-align: center;
+}
+
+#lastlast h1 {
+  font-size: 22px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+#foo {
+  border: 1px dotted #8c5830;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 10px;
+  background: rgba(0,0,0,0.2);
+}
+
+#foo h3 {
+  color: #fff;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.social-icon {
+  width: 60px;
+  height: 60px;
+  margin: 5px auto 10px auto;
+  display: block;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+ul li a {
+  color: #4da6ff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+ul li a:hover {
+  color: #80bfff;
+  text-decoration: underline;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: var(--border-color);
+  margin: 12px 0;
+}
 </style>
-
 </head>
+
 <body>
 
+<div class="wrapper">
 
+  <!-- Under Construction Box -->
+  <div id="lemon">
+    <h1 id="scoo">Sorry my friend</h1>
+    <hr>
+    <p id="paa"><b>Page is still under construction!</b></p>
+    <img src="1673089572197.png" alt="Construction Icon" class="construction-img">
+  </div>
 
-<div id="lemon">
+  <!-- Ad 1 (Adsterra Video Card 1) -->
+  <div class="ad-video-card">
+    <div class="ad-video-header">
+      <span>Sponsored Content</span>
+      <span class="ad-badge">HD Ad</span>
+    </div>
+    <div class="ad-player-screen">
+      <script type="text/javascript">
+        atOptions = {
+            'key' : '67eaed8f6ec713b1d2a9288be19c8222',
+            'format' : 'iframe',
+            'height' : 90,
+            'width' : 728,
+            'params' : {}
+        };
+      </script>
+      <script type="text/javascript" src="//www.topcreativeformat.com/67eaed8f6ec713b1d2a9288be19c8222/invoke.js"></script>
+      <div class="ad-player-overlay">
+        <div class="play-button-circle"></div>
+      </div>
+    </div>
+  </div>
 
-<h1 align="center" id="scoo">SOrry my friend</h1>
+  <!-- Navigation / Back Box -->
+  <div id="lemonade">
+    <a href="index.html">
+      <h1><but>Back</but></h1>
+    </a>
+    <hr>
+    <h3 id="paar">More local content coming soon!!</h3>
+  </div>
 
+  <!-- Fake Download Buttons Section -->
+  <div class="download-section">
+    <h3>High-Speed Direct Links</h3>
+    <a href="#" class="fake-download-btn">⬇ Download Full Archive (ZIP)</a>
+    <a href="#" class="fake-download-btn alt">⚡ Fast Server Stream (HD)</a>
+  </div>
 
-<hr>
-<br> 
-<p color="White" align="center" id="paa"> <b>page is still under construction!</b></p><img src="1673089572197.png"  width="50px" height="50px">
-<hr>
+  <!-- Ad 2 (Adsterra Video Card 2) -->
+  <div class="ad-video-card">
+    <div class="ad-video-header">
+      <span>Featured Recommendation</span>
+      <span class="ad-badge">HD Ad</span>
+    </div>
+    <div class="ad-player-screen">
+      <script type="text/javascript">
+        atOptions = {
+            'key' : '67eaed8f6ec713b1d2a9288be19c8222',
+            'format' : 'iframe',
+            'height' : 90,
+            'width' : 728,
+            'params' : {}
+        };
+      </script>
+      <script type="text/javascript" src="//www.topcreativeformat.com/67eaed8f6ec713b1d2a9288be19c8222/invoke.js"></script>
+      <div class="ad-player-overlay">
+        <div class="play-button-circle"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ad 3 (Adsterra Video Card 3) -->
+  <div class="ad-video-card">
+    <div class="ad-video-header">
+      <span>Exclusive Stream</span>
+      <span class="ad-badge">HD Ad</span>
+    </div>
+    <div class="ad-player-screen">
+      <script type="text/javascript">
+        atOptions = {
+            'key' : '67eaed8f6ec713b1d2a9288be19c8222',
+            'format' : 'iframe',
+            'height' : 90,
+            'width' : 728,
+            'params' : {}
+        };
+      </script>
+      <script type="text/javascript" src="//www.topcreativeformat.com/67eaed8f6ec713b1d2a9288be19c8222/invoke.js"></script>
+      <div class="ad-player-overlay">
+        <div class="play-button-circle"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Social & Stay Tuned Box -->
+  <div id="lastlast">
+    <h1>Stay Tuned</h1>
+    <div id="foo">
+      <h3>Follow us on</h3>
+      <img src="1673387675120.png" alt="Social Icon" class="social-icon">
+      <ul>
+        <li><a href="facebook">Facebook</a></li>
+        <li><a href="twitter">Twitter</a></li>
+      </ul>
+    </div>
+  </div>
+
 </div>
 
-<br>
-
-
-
-<div id ="lemonade">
-
-<a href ="index.html"><h1 align="center"><but>Back</but></h1></a>
- <hr>
- <br>
- <h3 align="center" id="paar">More local content coming soon!!</h3>
- <hr>
- 
- 
-</div>
-<br>
-
-<div id ="lastlast">
-<h1 align="center">Stay Tuned</h1>
-
-<div id="foo">
-<h3 >Follow us on</h3>
-<img src="1673387675120.png" width="80px" height="80px">
-<ul align="center">
-<li>
-<a href="facebook" >Facebook</a></li>
-<li>
-<a href="twitter">Twitter</a></li>
-
-</ul></div></div>
 </body>
+</html>
