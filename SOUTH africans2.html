@@ -175,7 +175,7 @@ td h3:hover {
   gap: 25px;
 }
 
-#wallpaper a {
+.video-card-wrapper {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 12px;
@@ -183,11 +183,29 @@ td h3:hover {
   box-shadow: 0 4px 12px rgba(0,0,0,0.4);
   transition: all 0.3s ease;
   display: block;
+  position: relative;
 }
 
-#wallpaper a:hover {
+.video-card-wrapper:hover {
   transform: translateY(-6px);
   border-color: var(--accent-red);
+}
+
+/* Fake Download Badge Overlay */
+.fake-download-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(229, 9, 20, 0.9);
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  z-index: 10;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 #wallpaper img {
@@ -201,6 +219,7 @@ td h3:hover {
   width: 100%;
   display: block;
   background: #000;
+  outline: none;
 }
 
 #wallpaper p {
@@ -267,7 +286,7 @@ hr {
   box-shadow: 0 6px 20px rgba(229, 9, 20, 0.6);
 }
 
-/* Timed Popup Ad Banner */
+/* Timed Pop-up Banner Ad */
 #timed-popup-banner {
   position: fixed;
   bottom: -150px;
@@ -392,31 +411,51 @@ hr {
 
 <h4>I ALSO <lerato>LOVE</lerato> Mzansi</h4>
 
-<!-- Video Showcase Section -->
+<!-- Video Showcase Section with Fake Download Badges & No Autoplay -->
 <div id="wallpaper">
-    <a href="-gjvVgSo4ZkD0Ev3_2023-10-09_20-26-02.mp4">
-      <img src="2023-10-09_203556.jpg" alt="thumbnail">
-      <video controls><source src="-gjvVgSo4ZkD0Ev3_2023-10-09_20-26-02.mp4" type="video/mp4"></video>
+    <div class="video-card-wrapper">
+      <a href="https://www.topcreativeformat.com/67eaed8f6ec713b1d2a9288be19c8222" class="fake-download-badge" target="_blank">⬇ DOWNLOAD</a>
+      <a href="-gjvVgSo4ZkD0Ev3_2023-10-09_20-26-02.mp4">
+        <img src="2023-10-09_203556.jpg" alt="thumbnail">
+      </a>
+      <video controls preload="none">
+        <source src="-gjvVgSo4ZkD0Ev3_2023-10-09_20-26-02.mp4" type="video/mp4">
+      </video>
       <p></p>
-    </a>
+    </div>
 
-    <a href="GimSF1sEzd9c4PWM_2023-10-09_20-39-27.mp4">
-      <img src="2023-10-09_204550.jpg" alt="thumbnail">
-      <video controls><source src="GimSF1sEzd9c4PWM_2023-10-09_20-39-27.mp4" type="video/mp4"></video>
+    <div class="video-card-wrapper">
+      <a href="https://www.topcreativeformat.com/67eaed8f6ec713b1d2a9288be19c8222" class="fake-download-badge" target="_blank">⬇ DOWNLOAD</a>
+      <a href="GimSF1sEzd9c4PWM_2023-10-09_20-39-27.mp4">
+        <img src="2023-10-09_204550.jpg" alt="thumbnail">
+      </a>
+      <video controls preload="none">
+        <source src="GimSF1sEzd9c4PWM_2023-10-09_20-39-27.mp4" type="video/mp4">
+      </video>
       <p></p>
-    </a>
+    </div>
 
-    <a href="ntR2OvjpeY7-7G2I (1)_2023-10-09_20-48-11.mp4">
-      <img src="2023-10-09_205109.jpg" alt="thumbnail">
-      <video controls><source src="ntR2OvjpeY7-7G2I (1)_2023-10-09_20-48-11.mp4" type="video/mp4"></video>
+    <div class="video-card-wrapper">
+      <a href="https://www.topcreativeformat.com/67eaed8f6ec713b1d2a9288be19c8222" class="fake-download-badge" target="_blank">⬇ DOWNLOAD</a>
+      <a href="ntR2OvjpeY7-7G2I (1)_2023-10-09_20-48-11.mp4">
+        <img src="2023-10-09_205109.jpg" alt="thumbnail">
+      </a>
+      <video controls preload="none">
+        <source src="ntR2OvjpeY7-7G2I (1)_2023-10-09_20-48-11.mp4" type="video/mp4">
+      </video>
       <p></p>
-    </a>
+    </div>
 
-    <a href="OC0yiR4zdwcN2f_o_2023-10-09_21-04-09.mp4">
-      <img src="2023-10-09_205825.jpg" alt="thumbnail">
-      <video controls><source src="OC0yiR4zdwcN2f_o_2023-10-09_21-04-09.mp4" type="video/mp4"></video>
+    <div class="video-card-wrapper">
+      <a href="https://www.topcreativeformat.com/67eaed8f6ec713b1d2a9288be19c8222" class="fake-download-badge" target="_blank">⬇ DOWNLOAD</a>
+      <a href="OC0yiR4zdwcN2f_o_2023-10-09_21-04-09.mp4">
+        <img src="2023-10-09_205825.jpg" alt="thumbnail">
+      </a>
+      <video controls preload="none">
+        <source src="OC0yiR4zdwcN2f_o_2023-10-09_21-04-09.mp4" type="video/mp4">
+      </video>
       <p></p>
-    </a>
+    </div>
 </div>
 
 <hr>
@@ -471,7 +510,7 @@ hr {
   <a href="SOUTH africans3.html" class="next-btn">NEXT PAGE ➔</a>
 </div>
 
-<!-- Timed Pop-up Banner Ad (Every 30 seconds for 1 minute) -->
+<!-- Timed Pop-up Banner Ad -->
 <div id="timed-popup-banner">
   <button class="close-popup" onclick="document.getElementById('timed-popup-banner').classList.remove('show');">&times;</button>
   <script type="text/javascript">
@@ -487,19 +526,16 @@ hr {
 </div>
 
 <script>
-// Logic to show popup every 30 seconds and keep it visible for 1 minute
 function initTimedPopup() {
   const popup = document.getElementById('timed-popup-banner');
   
   function triggerPopup() {
     popup.classList.add('show');
-    // Disappear after 1 minute (60000 milliseconds)
     setTimeout(() => {
       popup.classList.remove('show');
     }, 60000);
   }
 
-  // Trigger first time after 30 seconds, then repeat every 30 seconds
   setInterval(triggerPopup, 30000);
 }
 
