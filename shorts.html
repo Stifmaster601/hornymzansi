@@ -1,93 +1,319 @@
-<!doctype html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>HornyPlayers.com/Videos</title>
+<title>HornyPlayers.com / Videos</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
-
-body{color:Red;background-color:black;}
-#Hornys{color:Blue;
-padding:20px;
-width:260px;
- border-style:solid; }
- 
-h1 {Color:Green; background-color:Black;}
-
-horny{color:orange;}
-
-players{background-color:white; color:black;}
-the{color:purple;background-color:white;}
-
-
-li{float:left;
-width:90px;
-margin:-1px;
-color:orange;
-background-color:yellow;
-font-family:Cursive
+:root {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #121212;
+  --bg-card: #181818;
+  --accent-red: #e50914;
+  --accent-red-hover: #f40612;
+  --text-main: #ffffff;
+  --text-muted: #b3b3b3;
+  --border-color: #282828;
 }
-ul{padding:14px;
-border-style:solid;
-height:12px;
-background:linear-gradient(Red, black,gray);}
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
 
-stars{text-decoration:none;
-color:red; background:blue;}
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 80px;
+}
 
-video  {background-color:yellow; width:300px; height:170; display:none;}
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+}
 
-p{color:white; background:black; }
+/* Header & Navigation Styling */
+header {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  text-align: center;
+}
 
+h1 {
+  font-size: 30px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #008000;
+  background-color: black;
+  padding: 10px;
+  display: inline-block;
+  border-radius: 6px;
+}
 
+.brand-the { color: purple; background-color: white; padding: 0 4px; }
+.brand-horny { color: orange; }
+.brand-mzansi { background: white; color: black; text-shadow: gray 2px 2px; padding: 2px 8px; border-radius: 4px; }
+
+nav {
+  max-width: 600px;
+  margin: 20px auto 0 auto;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px;
+  background: linear-gradient(Red, black, gray);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+}
+
+nav li {
+  width: 90px;
+  background-color: yellow;
+  border-radius: 4px;
+  padding: 6px 0;
+  text-align: center;
+  font-family: Cursive;
+  font-weight: bold;
+}
+
+nav li a {
+  color: orange;
+  font-size: 15px;
+}
+
+nav li:hover {
+  background: var(--accent-red);
+}
+
+nav li:hover a {
+  color: white;
+}
+
+/* Promo Link Banner */
+.promo-banner {
+  text-align: center;
+  margin: 20px auto;
+  font-size: 16px;
+}
+
+.promo-banner a {
+  color: var(--accent-red);
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.promo-banner a:hover {
+  text-decoration: underline;
+}
+
+/* Video Grid Layout */
+.video-grid {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.video-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.video-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-red);
+  box-shadow: 0 8px 20px rgba(229, 9, 20, 0.2);
+}
+
+/* Fake Download Badge Overlay */
+.fake-download-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(229, 9, 20, 0.9);
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  z-index: 10;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.video-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.video-card p {
+  color: var(--text-main);
+  background: transparent;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  flex-grow: 1;
+}
+
+.video-card video {
+  width: 100%;
+  background-color: black;
+  outline: none;
+  display: block;
+}
+
+/* Ad Containers */
+.ad-container {
+  max-width: 768px;
+  margin: 30px auto;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+}
+
+.ad-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: var(--border-color);
+  margin: 20px 0;
+}
 </style>
 </head>
-
 
 <body>
 
 <header>
-<h1 align="center"><the>The</the><horny>Horny</horny><players>Mzansi</players></h1>
-
+  <h1 align="center"><span class="brand-the">The</span><span class="brand-horny">Horny</span><span class="brand-mzansi">Mzansi</span></h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="pictures.html">pictures</a></li>
+      <li><a href="videos.html">videos</a></li>
+    </ul>
+  </nav>
 </header>
 
 <section>
+  <hr>
 
-<br>
+  <div class="promo-banner">
+    <a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38" target="_blank"> 🔥 Hot this month? Click here </a>
+  </div>
 
- <nav>
- <ul>
- <li><a href="index.html">Home</a></li>
+  <!-- Top Ad Banner Unit -->
+  <div class="ad-container">
+    <div class="ad-label">Sponsored Ad</div>
+    <script type="text/javascript">
+      atOptions = {
+          'key' : 'ce5154cba328f3f0816978d619b0bf38',
+          'format' : 'iframe',
+          'height' : 90,
+          'width' : 728,
+          'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//www.highcpmrevenuegate.com/sbinbbxg/invoke.js"></script>
+  </div>
 
-<li><a href="pictures.html">pictures</a></li>
+  <!-- Video Gallery Grid -->
+  <div class="video-grid">
+    
+    <div class="video-card">
+      <a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38" class="fake-download-badge" target="_blank">⬇ DOWNLOAD</a>
+      <a href="Horny1.mp4">
+        <img src="Horny1.jpg" alt="thumbnail">
+        <p>Buhle shows off kuku</p>
+      </a>
+      <video controls preload="none">
+        <source src="Horny1.mp4" type="video/mp4">
+      </video>
+    </div>
 
-<li><a href="videos.html">videos</p#a></li>
+    <div class="video-card">
+      <a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38" class="fake-download-badge" target="_blank">⬇ DOWNLOAD</a>
+      <a href="horny2.mp4">
+        <img src="horny2.jpg" alt="thumbnail">
+        <p>naughty colored girl needs a dick</p>
+      </a>
+      <video controls preload="none">
+        <source src="horny2.mp4" type="video/mp4">
+      </video>
+    </div>
 
-</ul></nav>
-<hr>
+    <div class="video-card">
+      <a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38" class="fake-download-badge" target="_blank">⬇ DOWNLOAD</a>
+      <a href="horny7.mp4">
+        <img src="horny7.jpg" alt="thumbnail">
+        <p>BAD ASS kasi queen</p>
+      </a>
+      <video controls preload="none">
+        <source src="horny7.mp4" type="video/mp4">
+      </video>
+    </div>
 
-<h3 align="center"><a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38">
+    <div class="video-card">
+      <a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38" class="fake-download-badge" target="_blank">⬇ DOWNLOAD</a>
+      <a href="horny14.mp4">
+        <img src="horny14.jpg" alt="thumbnail">
+        <p>wanna see pussy?</p>
+      </a>
+      <video controls preload="none">
+        <source src="horny14.mp4" type="video/mp4">
+      </video>
+    </div>
 
-     Hot this month? click here</a></h3>
+  </div>
 
+  <!-- Bottom Ad Banner Unit -->
+  <div class="ad-container">
+    <div class="ad-label">Sponsored Ad</div>
+    <script type="text/javascript">
+      atOptions = {
+          'key' : 'ce5154cba328f3f0816978d619b0bf38',
+          'format' : 'iframe',
+          'height' : 90,
+          'width' : 728,
+          'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//www.highcpmrevenuegate.com/sbinbbxg/invoke.js"></script>
+  </div>
 
-<a href="Horny1.mp4"><img src="Horny1.jpg" height="150"><p>Buhle shows off kuku</p>
-<video controls>
-<source src="Horny1.mp4" type="video/mp4"></video></a>
-
-<a href="horny2.mp4"><img src="horny2.jpg" height="150"><p>naughty colored girl needs a dick</p>
-<video controls>
-<source src="horny2.mp4" type="video/mp4"></video></a>
-
-<a href="horny7.mp4"><img src="horny7.jpg" height="150"><p>BAD ASS kasi queen</p>
-<video controls>
-<source src="horny7.mp4" type="video/mp4"></video></a>
-
-
-<a href="horny14.mp4"><img src="horny14.jpg" height="150"><p>wanna see pussy?</p>
-<video controls>
-<source src="horny14.mp4" type="video/mp4">
-</video>
-</a>
+</section>
 </body>
 </html>
