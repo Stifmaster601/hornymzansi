@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <title>HornyPlayers.com/Videos</title>
+  <title>HornyPlayers.com/South-Africans</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="dinepe.css">
   <style>
@@ -22,10 +22,29 @@
       line-height: 1.5;
     }
 
+    /* Sticky Aggressive Header Ad Bar */
+    .sticky-top-ad {
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      background: #15151e;
+      border-bottom: 2px solid var(--primary-red);
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(255, 51, 102, 0.4);
+    }
+    .sticky-top-ad img {
+      max-width: 100%;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
     h1 {
       letter-spacing: 2px;
       color: var(--primary-red);
       text-shadow: 0 4px 12px rgba(255, 51, 102, 0.3);
+      margin-top: 15px;
     }
 
     hr {
@@ -51,9 +70,6 @@
       padding: 2px 6px;
       border-radius: 6px;
       border: 1px solid rgba(255, 51, 102, 0.3);
-      text-shadow: 0 2px 4px rgba(138, 43, 226, 0.4);
-      text-decoration: underline;
-      text-underline-offset: 3px;
     }
 
     h4 {
@@ -64,23 +80,9 @@
       border-radius: 0 8px 8px 0;
       text-align: center;
       font-weight: 600;
-      letter-spacing: 0.5px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
 
-    /* Navigation Menu Layout */
-    #mainp table tr td {
-      padding: 0 15px;
-    }
-    #mainp h3 {
-      background: var(--card-bg);
-      padding: 8px 16px;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    /* Category List Section */
     #section ul {
       display: flex;
       flex-wrap: wrap;
@@ -95,13 +97,11 @@
       border-radius: 6px;
       font-size: 14px;
       border: 1px solid rgba(255, 255, 255, 0.05);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
 
     /* Wallpaper Video Grid Container */
     #wallpaper {
       max-width: 900px;
-      min-height: 400px;
       background: linear-gradient(135deg, #1e1e2f 0%, #12121a 100%);
       position: relative;
       border-radius: 16px;
@@ -126,12 +126,31 @@
       border: 1px solid rgba(255, 255, 255, 0.05);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       vertical-align: top;
+      position: relative;
+    }
+
+    /* Fake External Download Overlay Button on Videos */
+    .fake-download-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 51, 102, 0.9);
+      color: #fff;
+      font-size: 10px;
+      font-weight: bold;
+      padding: 4px 8px;
+      border-radius: 4px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+      z-index: 10;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     #wallpaper img {
       border-radius: 8px;
       object-fit: cover;
       box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+      width: 150px;
     }
 
     #wallpaper p {
@@ -139,18 +158,6 @@
       font-size: 14px;
       margin-top: 10px;
       font-weight: 500;
-    }
-
-    /* Ad images preview row styling */
-    body > a > img {
-      border-radius: 8px;
-      margin: 5px;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      transition: transform 0.2s ease;
-    }
-    body > a > img:hover {
-      transform: scale(1.03);
     }
 
     button {
@@ -167,42 +174,37 @@
       color: white !important;
     }
 
-    #display {
-      width: 100px;
-      height: 100px;
-      background: linear-gradient(135deg, #000000, #222233);
-      border-radius: 12px;
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-    }
-
-    #container {
-      width: 200px;
-      height: 200px;
-      background: rgba(16, 185, 129, 0.1);
-      border: 2px dashed rgba(16, 185, 129, 0.4);
-      border-radius: 12px;
-      position: relative;
-      margin: 20px auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    #box {
-      width: 50px;
-      height: 50px;
-      background: var(--primary-red);
+    /* Floating Pop-up Ad */
+    .floating-pop-ad {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      background: #1a1a24;
+      border: 1px solid var(--primary-red);
+      padding: 10px;
       border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(255, 51, 102, 0.4);
+      box-shadow: 0 5px 25px rgba(0,0,0,0.8);
+      z-index: 9998;
+      max-width: 140px;
+    }
+    .floating-pop-ad img {
+      width: 120px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 4px;
     }
   </style>
 </head>
 <body>
 
-  <h1 ALIGN="CENTER">HORNYMZANSI</h1>
+  <!-- Persistent Sticky Top Ad Bar -->
+  <div class="sticky-top-ad">
+    <a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38" target="_blank">
+      <img src="3ninjas ads.jpg" alt="Sponsored Ad">
+    </a>
+  </div>
+
+  <h1 align="CENTER">HORNYMZANSI</h1>
   <hr>
   <br>
 
@@ -220,39 +222,23 @@
 
   <div id="section">
     <ul>
-      <LI><a href="SOUTH africans.html">SOUTH AFRICANS</a></LI>
-      <LI><a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38">STEPMOM AND STEPSON</a></LI>
-      <LI>LEAKS</LI>
-      <LI>BBW</LI>
-      <LI><a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38">HARDCORE</a></LI>
-      <LI><a href="SOUTH africans.html">BLACK</a></LI>
-      <LI>ASIANS</LI>
-      <LI>DOCTORS</LI>
-      <LI>MODELS</LI>
-      <LI>GYM</LI>
-      <LI>POLICE</LI>
-      <LI>LESBIAN</LI>
-      <LI>GAY</LI>
-      <LI>TEEN</LI>
-      <LI>INFLUENCERS</LI>
+      <li><a href="SOUTH africans.html">SOUTH AFRICANS</a></li>
+      <li><a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38">STEPMOM AND STEPSON</a></li>
+      <li><a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38">LEAKS</a></li>
+      <li><a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38">BBW</a></li>
+      <li><a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38">HARDCORE</a></li>
+      <li><a href="SOUTH africans.html">BLACK</a></li>
+      <li><a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38">ASIANS</a></li>
+      <li><a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38">DOCTORS</a></li>
+      <li><a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38">MODELS</a></li>
+      <li><a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38">GYM</a></li>
+      <li><a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38">POLICE</a></li>
+      <li><a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38">LESBIAN</a></li>
+      <li><a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38">GAY</a></li>
+      <li><a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38">TEEN</a></li>
+      <li><a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38">INFLUENCERS</a></li>
     </ul>
   </div>
-  <br>
-  <hr>
-  <br>
-
-  <div align="center">
-    <a href="3ninjas ads.jpg"><img src="3ninjas ads.jpg" width="150px" height="200px"></a>
-    <a href="3step ads.jpg"><img src="3step ads.jpg" width="150px" height="200px"></a>
-    <a href="ads vu.jpg"><img src="ads vu.jpg" width="150px" height="200px"></a>
-    <a href="black ads.jpg"><img src="black ads.jpg" width="150px" height="200px"></a>
-    <a href="blacky ads2.jpg"><img src="blacky ads2.jpg" width="150px" height="200px"></a>
-    <a href="F4dc3Z9XUAEbAfk.jpg"><img src="F4dc3Z9XUAEbAfk.jpg" width="150px" height="200px"></a>
-    <a href="gugu ads.jpg"><img src="gugu ads.jpg" width="150px" height="200px"></a>
-    <a href=""><img src="" width="150px" height="200px"></a>
-    <a href=""><img src="" width="150px" height="200px"></a>
-  </div>
-
   <br>
   <hr>
   <br>
@@ -264,18 +250,21 @@
       <table>
         <tr>
           <td>
+            <a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38" class="fake-download-badge" target="_blank">⬇ DOWNLOAD</a>
             <a href="8QuZuidaJ31r8U58.mp4">
               <img src="2024-01-06_045346.jpg" width="150px">
               <p>molley from rustenburg</p>
             </a>
           </td>
           <td>
+            <a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38" class="fake-download-badge" target="_blank">⬇ DOWNLOAD</a>
             <a href="9r_A-x7ii1qo-raK.mp4">
               <img src="2024-01-06_052429.jpg" width="150px">
               <p>sandton instagram girls</p>
             </a>
           </td>
           <td>
+            <a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38" class="fake-download-badge" target="_blank">⬇ DOWNLOAD</a>
             <a href="Gz2dUW_XTY2iwTYh.mp4">
               <img src="2024-01-06_052827.jpg" width="150px">
               <p>black beauty from durban</p>
@@ -284,22 +273,25 @@
         </tr>
         <tr>
           <td>
+            <a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38" class="fake-download-badge" target="_blank">⬇ DOWNLOAD</a>
             <a href="kpTXdLFqg2QpCipF.mp4">
               <img src="2024-01-06_054912.jpg" width="150px">
               <p>oratile pretoria mamelodi</p>
             </a>
           </td>
           <td>
+            <a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38" class="fake-download-badge" target="_blank">⬇ DOWNLOAD</a>
             <a href="DLSEgoNeORhM6IzF.mp4">
               <img src="2024-01-06_060108.jpg" width="150px">
               <p>zandile from soweto</p>
             </a>
           </td>
           <td>
-            <A href="N2ez_xfdFJ5uCLBl.mp4">
-              <IMG src="2024-01-06_061341.jpg" width="150PX">
-              <P>TSAKANI from Giyani</P>
-            </A>
+            <a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38" class="fake-download-badge" target="_blank">⬇ DOWNLOAD</a>
+            <a href="N2ez_xfdFJ5uCLBl.mp4">
+              <img src="2024-01-06_061341.jpg" width="150px">
+              <p>TSAKANI from Giyani</p>
+            </a>
           </td>
         </tr>
       </table>
@@ -310,47 +302,15 @@
   <br>
 
   <div align="center">
-    <a href=""><img src="" width="150px" height="200px"></a>
-    <a href=""><img src="" width="150px" height="200px"></a>
-    <a href=""><img src="" width="150px" height="200px"></a>
-    <a href="ads.jpg"><img src="ads.jpg" width="150px" height="200px"></a>
-    <a href=""><img src="" width="150px" height="200px"></a>
-    <a href=""><img src="" width="150px" height="200px"></a>
-    <a href=""><img src="" width="150px" height="200px"></a>
-    <a href=""><img src="" width="150px" height="200px"></a>
-    <a href=""><img src="" width="150px" height="200px"></a>
-    <a href=""><img src="" width="150px" height="200px"></a>
-  </div>
-
-  <hr>
-  <br>
-
-  <div align="center">
     <button><a href="SOUTH africans2.html">NEXT</a></button>
   </div>
 
-  <div id="container">
-    <div id="box"></div>
+  <!-- Persistent Floating Pop-up Ad that stays when scrolling -->
+  <div class="floating-pop-ad">
+    <a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38" target="_blank">
+      <img src="ads vu.jpg" alt="Popup Ad">
+    </a>
   </div>
-
-  <div id="display"></div>
-
-  <script>
-    window.onload = function () {
-      var pos = 0;
-      var box = document.getElementById('box');
-      var t = setInterval(move, 50);
-
-      function move() {
-        if (pos >= 150) {
-          clearInterval(t);
-        } else {
-          pos += 1;
-          box.style.left = pos + 'px';
-        }
-      }
-    };
-  </script>
 
 </body>
 </html>
