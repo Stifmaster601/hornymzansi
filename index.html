@@ -6,7 +6,7 @@
 <title>HornyPlayers.com/Videos</title>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <style>
 :root {
@@ -39,6 +39,16 @@ a {
   text-decoration: none;
   color: inherit;
   transition: all 0.2s ease;
+}
+
+/* Rotating Adsterra Banner Container */
+#rotating-ad-container {
+  width: 100%;
+  max-width: 728px;
+  margin: 10px auto;
+  text-align: center;
+  min-height: 90px;
+  display: none;
 }
 
 /* Modern Header / Branding */
@@ -166,7 +176,7 @@ h4 a:hover {
   padding: 20px;
 }
 
-#display a {
+.video-card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 12px;
@@ -177,10 +187,15 @@ h4 a:hover {
   flex-direction: column;
 }
 
-#display a:hover {
+.video-card:hover {
   transform: translateY(-6px);
   border-color: #444;
   box-shadow: 0 10px 25px rgba(229, 9, 20, 0.2);
+}
+
+.video-card a {
+  display: flex;
+  flex-direction: column;
 }
 
 img {
@@ -196,13 +211,42 @@ video {
 }
 
 p {
-  padding: 14px;
+  padding: 14px 14px 8px 14px;
   text-align: left;
   background: transparent;
   font-size: 14px;
   font-weight: 500;
   color: var(--text-main);
   line-height: 1.4;
+}
+
+/* Fake HD Download Button Styling */
+.download-hd-btn {
+  margin: 0 14px 14px 14px;
+  padding: 10px;
+  background: linear-gradient(135deg, #e50914 0%, #b30000 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: opacity 0.2s;
+}
+
+.download-hd-btn:hover {
+  opacity: 0.9;
+}
+
+.download-status {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: 10px;
+  display: none;
 }
 
 hr {
@@ -235,6 +279,9 @@ hr {
 <body>
 
 <h1>HORNYMZANSI</h1>
+
+<!-- Dynamic Rotating Adsterra Banner Slot -->
+<div id="rotating-ad-container"></div>
 
 <hr>
 
@@ -278,101 +325,125 @@ hr {
 
 <div id="display">
 
-  <a href="riding two.mp4">
-    <img src="riding two.JPG" alt="Buhle shows off kuku">
-    <p>Buhle shows off kuku</p>
-    <video controls>
-      <source src="riding two.mp4" type="video/mp4">
-    </video>
-  </a>
+  <div class="video-card">
+    <a href="riding two.mp4">
+      <img src="riding two.JPG" alt="Buhle shows off kuku">
+      <p>Buhle shows off kuku</p>
+      <video controls><source src="riding two.mp4" type="video/mp4"></video>
+    </a>
+    <button class="download-hd-btn" onclick="triggerFakeDownload(this)">⬇ Download HD (1080p)</button>
+    <div class="download-status"></div>
+  </div>
 
-  <a href="mzansi5.mp4">
-    <img src="mzansi5.JPG" alt="Colored is sexy">
-    <p>Colored is sexy</p>
-    <video controls>
-      <source src="mzansi5.mp4" type="video/mp4">
-    </video>
-  </a>
+  <div class="video-card">
+    <a href="mzansi5.mp4">
+      <img src="mzansi5.JPG" alt="Colored is sexy">
+      <p>Colored is sexy</p>
+      <video controls><source src="mzansi5.mp4" type="video/mp4"></video>
+    </a>
+    <button class="download-hd-btn" onclick="triggerFakeDownload(this)">⬇ Download HD (1080p)</button>
+    <div class="download-status"></div>
+  </div>
 
-  <a href="student.mp4">
-    <img src="student.JPG" alt="Students and sex">
-    <p>Students and sex</p>
-    <video controls>
-      <source src="student.mp4" type="video/mp4">
-    </video>
-  </a>
+  <div class="video-card">
+    <a href="student.mp4">
+      <img src="student.JPG" alt="Students and sex">
+      <p>Students and sex</p>
+      <video controls><source src="student.mp4" type="video/mp4"></video>
+    </a>
+    <button class="download-hd-btn" onclick="triggerFakeDownload(this)">⬇ Download HD (1080p)</button>
+    <div class="download-status"></div>
+  </div>
 
-  <a href="cum.mp4">
-    <img src="cum.jpg" alt="Yes baby make me cum">
-    <p>Yes baby make me cum</p>
-    <video controls>
-      <source src="cum.mp4" type="video/mp4">
-    </video>
-  </a>
+  <div class="video-card">
+    <a href="cum.mp4">
+      <img src="cum.jpg" alt="Yes baby make me cum">
+      <p>Yes baby make me cum</p>
+      <video controls><source src="cum.mp4" type="video/mp4"></video>
+    </a>
+    <button class="download-hd-btn" onclick="triggerFakeDownload(this)">⬇ Download HD (1080p)</button>
+    <div class="download-status"></div>
+  </div>
 
-  <a href="mzansinetball.mp4">
-    <img src="mzansinetball.jpg" alt="Netball is fun with sex">
-    <p>Netball is fun with sex</p>
-    <video controls>
-      <source src="mzansinetball.mp4" type="video/mp4">
-    </video>
-  </a>
+  <div class="video-card">
+    <a href="mzansinetball.mp4">
+      <img src="mzansinetball.jpg" alt="Netball is fun with sex">
+      <p>Netball is fun with sex</p>
+      <video controls><source src="mzansinetball.mp4" type="video/mp4"></video>
+    </a>
+    <button class="download-hd-btn" onclick="triggerFakeDownload(this)">⬇ Download HD (1080p)</button>
+    <div class="download-status"></div>
+  </div>
 
-  <a href="gym.mp4">
-    <img src="gym.jpg" alt="Sexy body from sexy stretching">
-    <p>Sexy body from sexy stretching</p>
-    <video controls>
-      <source src="gym.mp4" type="video/mp4">
-    </video>
-  </a>
+  <div class="video-card">
+    <a href="gym.mp4">
+      <img src="gym.jpg" alt="Sexy body from sexy stretching">
+      <p>Sexy body from sexy stretching</p>
+      <video controls><source src="gym.mp4" type="video/mp4"></video>
+    </a>
+    <button class="download-hd-btn" onclick="triggerFakeDownload(this)">⬇ Download HD (1080p)</button>
+    <div class="download-status"></div>
+  </div>
 
-  <a href="backshots.mp4">
-    <img src="backshots.jpg" alt="Backshots of backshots">
-    <p>Backshots of backshots</p>
-    <video controls>
-      <source src="backshots.mp4" type="video/mp4">
-    </video>
-  </a>
+  <div class="video-card">
+    <a href="backshots.mp4">
+      <img src="backshots.jpg" alt="Backshots of backshots">
+      <p>Backshots of backshots</p>
+      <video controls><source src="backshots.mp4" type="video/mp4"></video>
+    </a>
+    <button class="download-hd-btn" onclick="triggerFakeDownload(this)">⬇ Download HD (1080p)</button>
+    <div class="download-status"></div>
+  </div>
 
-  <a href="mzansi6.mp4">
-    <img src="mzansi6.JPG" alt="Colored is sexy 2">
-    <p>Colored is sexy 2</p>
-    <video controls>
-      <source src="mzansi6.mp4" type="video/mp4">
-    </video>
-  </a>
+  <div class="video-card">
+    <a href="mzansi6.mp4">
+      <img src="mzansi6.JPG" alt="Colored is sexy 2">
+      <p>Colored is sexy 2</p>
+      <video controls><source src="mzansi6.mp4" type="video/mp4"></video>
+    </a>
+    <button class="download-hd-btn" onclick="triggerFakeDownload(this)">⬇ Download HD (1080p)</button>
+    <div class="download-status"></div>
+  </div>
 
-  <a href="ugandian.mp4">
-    <img src="ugandian_2023-05-19_13-01-57.jpg" alt="Ugandian lady fucked so bad">
-    <p>Ugandian lady fucked so bad</p>
-    <video controls>
-      <source src="ugandian.mp4" type="video/mp4">
-    </video>
-  </a>
+  <div class="video-card">
+    <a href="ugandian.mp4">
+      <img src="ugandian_2023-05-19_13-01-57.jpg" alt="Ugandian lady fucked so bad">
+      <p>Ugandian lady fucked so bad</p>
+      <video controls><source src="ugandian.mp4" type="video/mp4"></video>
+    </a>
+    <button class="download-hd-btn" onclick="triggerFakeDownload(this)">⬇ Download HD (1080p)</button>
+    <div class="download-status"></div>
+  </div>
 
-  <a href="cum2.mp4">
-    <img src="cum2.JPG" alt="Me or Ferrari">
-    <p>Me or Ferrari</p>
-    <video controls>
-      <source src="cum2.mp4" type="video/mp4">
-    </video>
-  </a>
+  <div class="video-card">
+    <a href="cum2.mp4">
+      <img src="cum2.JPG" alt="Me or Ferrari">
+      <p>Me or Ferrari</p>
+      <video controls><source src="cum2.mp4" type="video/mp4"></video>
+    </a>
+    <button class="download-hd-btn" onclick="triggerFakeDownload(this)">⬇ Download HD (1080p)</button>
+    <div class="download-status"></div>
+  </div>
 
-  <a href="zodwa.mp4">
-    <img src="zodwa.jpg" alt="Zodwa Wabantu pantyless show off">
-    <p>Zodwa Wabantu pantyless show off</p>
-    <video controls>
-      <source src="zodwa.mp4" type="video/mp4">
-    </video>
-  </a>
+  <div class="video-card">
+    <a href="zodwa.mp4">
+      <img src="zodwa.jpg" alt="Zodwa Wabantu pantyless show off">
+      <p>Zodwa Wabantu pantyless show off</p>
+      <video controls><source src="zodwa.mp4" type="video/mp4"></video>
+    </a>
+    <button class="download-hd-btn" onclick="triggerFakeDownload(this)">⬇ Download HD (1080p)</button>
+    <div class="download-status"></div>
+  </div>
 
-  <a href="twitter_20230114_061651.mp4">
-    <img src="twitter_20230114_061651.jpg" alt="Wild Indian on the scene">
-    <p>Wild Indian on the scene</p>
-    <video controls>
-      <source src="twitter_20230114_061651.mp4" type="video/mp4">
-    </video>
-  </a>
+  <div class="video-card">
+    <a href="twitter_20230114_061651.mp4">
+      <img src="twitter_20230114_061651.jpg" alt="Wild Indian on the scene">
+      <p>Wild Indian on the scene</p>
+      <video controls><source src="twitter_20230114_061651.mp4" type="video/mp4"></video>
+    </a>
+    <button class="download-hd-btn" onclick="triggerFakeDownload(this)">⬇ Download HD (1080p)</button>
+    <div class="download-status"></div>
+  </div>
 
 </div>
 
@@ -389,6 +460,66 @@ atOptions = {
 };
 </script>
 <script type="text/javascript" src="//www.topcreativeformat.com/67eaed8f6ec713b1d2a9288be19c8222/invoke.js"></script>
+
+<script>
+// Script for Adsterra Rotating Banner (Appears every 15s, stays for 1 min)
+function initRotatingAd() {
+  const container = document.getElementById('rotating-ad-container');
+  
+  function showAd() {
+    // Inject Adsterra script content dynamically
+    container.innerHTML = '';
+    const scriptTag = document.createElement('script');
+    scriptTag.type = 'text/javascript';
+    scriptTag.src = '//www.topcreativeformat.com/67eaed8f6ec713b1d2a9288be19c8222/invoke.js';
+    container.appendChild(scriptTag);
+    
+    container.style.display = 'block';
+    
+    // Hide after 1 minute (60,000 ms)
+    setTimeout(() => {
+      container.style.display = 'none';
+      container.innerHTML = '';
+    }, 60000);
+  }
+
+  // Loop every 75 seconds total (15s hidden + 60s shown)
+  setInterval(showAd, 75000);
+  
+  // Trigger first appearance after 15 seconds
+  setTimeout(showAd, 15000);
+}
+
+// Fake Download HD Progress Logic
+function triggerFakeDownload(button) {
+  const statusDiv = button.nextElementSibling;
+  button.disabled = true;
+  button.style.opacity = '0.6';
+  statusDiv.style.display = 'block';
+  
+  let progress = 0;
+  const interval = setInterval(() => {
+    progress += Math.floor(Math.random() * 15) + 10;
+    if (progress >= 100) {
+      progress = 100;
+      clearInterval(interval);
+      statusDiv.innerHTML = "✅ Download ready! Redirecting to secure mirror...";
+      
+      // Optional: Open Adsterra link or redirect when download finishes
+      setTimeout(() => {
+        window.open("https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38", "_blank");
+        button.disabled = false;
+        button.style.opacity = '1';
+        statusDiv.style.display = 'none';
+      }, 1500);
+    } else {
+      statusDiv.innerHTML = `Preparing HD link... ${progress}%`;
+    }
+  }, 400);
+}
+
+window.onload = initRotatingAd;
+</script>
 
 </body>
 </html>
