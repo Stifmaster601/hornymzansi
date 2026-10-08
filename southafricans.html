@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>HornyPlayers.com/South-Africans</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="dinepe.css">
+  <style>
+    :root {
+      --primary-red: #ff3366;
+      --bg-dark: #0f0f13;
+      --card-bg: #1a1a24;
+      --text-main: #f0f0f5;
+      --text-muted: #9494a0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      padding: 15px;
+      line-height: 1.5;
+    }
+
+    /* Sticky Aggressive Header Ad Bar */
+    .sticky-top-ad {
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      background: #15151e;
+      border-bottom: 2px solid var(--primary-red);
+      padding: 8px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(255, 51, 102, 0.4);
+    }
+    .sticky-top-ad img {
+      max-width: 100%;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    h1 {
+      letter-spacing: 2px;
+      color: var(--primary-red);
+      text-shadow: 0 4px 12px rgba(255, 51, 102, 0.3);
+      margin-top: 15px;
+      text-align: center;
+      font-size: 26px;
+    }
+
+    hr {
+      border: 0;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.1);
+      margin: 15px 0;
+    }
+
+    a {
+      color: var(--text-main);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--primary-red);
+    }
+
+    .lerato {
+      color: var(--primary-red);
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2px 6px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 51, 102, 0.3);
+    }
+
+    h4 {
+      border-left: 4px solid var(--primary-red);
+      color: var(--text-muted);
+      background-color: var(--card-bg);
+      padding: 10px 14px;
+      border-radius: 0 8px 8px 0;
+      text-align: center;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+      margin: 20px auto;
+    }
+
+    /* Navigation Header Links Menu */
+    #mainp table {
+      margin: 0 auto;
+      border-collapse: collapse;
+    }
+    #mainp td {
+      padding: 0 10px;
+    }
+
+    /* Category Tags List */
+    #section ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    #section li {
+      background: var(--card-bg);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Wallpaper Video Grid Container (Mobile Responsive Flex Grid) */
+    #wallpaper {
+      max-width: 900px;
+      background: linear-gradient(135deg, #1e1e2f 0%, #12121a 100%);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      margin: 20px auto;
+      padding: 15px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 15px;
+    }
+
+    .video-card {
+      background: var(--card-bg);
+      padding: 15px;
+      border-radius: 12px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Fake External Download Overlay Button on Videos */
+    .fake-download-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(255, 51, 102, 0.9);
+      color: #fff;
+      font-size: 9px;
+      font-weight: bold;
+      padding: 3px 6px;
+      border-radius: 4px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+      z-index: 10;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .video-card img {
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+      width: 100%;
+      max-width: 160px;
+      height: 210px;
+    }
+
+    .video-card p {
+      color: var(--text-main);
+      font-size: 13px;
+      margin-top: 10px;
+      font-weight: 500;
+      text-transform: capitalize;
+    }
+
+    button {
+      background: var(--primary-red);
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(255, 51, 102, 0.4);
+    }
+    button a {
+      color: white !important;
+    }
+
+    /* Floating Pop-up Ad */
+    .floating-pop-ad {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      background: #1a1a24;
+      border: 1px solid var(--primary-red);
+      padding: 8px;
+      border-radius: 8px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.8);
+      z-index: 9998;
+      max-width: 110px;
+    }
+    .floating-pop-ad img {
+      width: 95px;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Persistent Sticky Top Ad Bar -->
+  <div class="sticky-top-ad">
+    <a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38" target="_blank">
+      <img src="3ninjas ads.jpg" alt="Sponsored Ad">
+    </a>
+  </div>
+
+  <h1>HORNYMZANSI</h1>
+  <hr>
+
+  <div id="mainp">
+    <table>
+      <tr>
+        <td><h3><a href="index.html">home</a></h3></td>
+        <td><h3><a href="videos.html">videos</a></h3></td>
+        <td><h3><a href="shorts.html">Shorts</a></h3></td>
+      </tr>
+    </table>
+  </div>
+  <hr>
+
+  <div id="section">
+    <ul>
+      <li><a href="SOUTH africans.html">SOUTH AFRICANS</a></li>
+      <li><a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38">STEPMOM AND STEPSON</a></li>
+      <li><a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38">LEAKS</a></li>
+      <li><a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38">BBW</a></li>
+      <li><a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38">HARDCORE</a></li>
+      <li><a href="SOUTH africans.html">BLACK</a></li>
+      <li><a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38">ASIANS</a></li>
+      <li><a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38">DOCTORS</a></li>
+      <li><a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38">MODELS</a></li>
+      <li><a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38">GYM</a></li>
+      <li><a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38">POLICE</a></li>
+      <li><a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38">LESBIAN</a></li>
+      <li><a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38">GAY</a></li>
+      <li><a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38">TEEN</a></li>
+      <li><a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38">INFLUENCERS</a></li>
+    </ul>
+  </div>
+  <hr>
+
+  <h4>I ALSO <lerato>LOVE</lerato> Mzansi</h4>
+
+  <div id="wallpaper">
+    <div class="video-card">
+      <a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38" class="fake-download-badge" target="_blank">⬇ DOWNLOAD</a>
+      <a href="8QuZuidaJ31r8U58.mp4">
+        <img src="2024-01-06_045346.jpg" alt="Video thumbnail">
+        <p>molley from rustenburg</p>
+      </a>
+    </div>
+
+    <div class="video-card">
+      <a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38" class="fake-download-badge" target="_blank">⬇ DOWNLOAD</a>
+      <a href="9r_A-x7ii1qo-raK.mp4">
+        <img src="2024-01-06_052429.jpg" alt="Video thumbnail">
+        <p>sandton instagram girls</p>
+      </a>
+    </div>
+
+    <div class="video-card">
+      <a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38" class="fake-download-badge" target="_blank">⬇ DOWNLOAD</a>
+      <a href="Gz2dUW_XTY2iwTYh.mp4">
+        <img src="2024-01-06_052827.jpg" alt="Video thumbnail">
+        <p>black beauty from durban</p>
+      </a>
+    </div>
+
+    <div class="video-card">
+      <a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38" class="fake-download-badge" target="_blank">⬇ DOWNLOAD</a>
+      <a href="kpTXdLFqg2QpCipF.mp4">
+        <img src="2024-01-06_054912.jpg" alt="Video thumbnail">
+        <p>oratile pretoria mamelodi</p>
+      </a>
+    </div>
+
+    <div class="video-card">
+      <a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38" class="fake-download-badge" target="_blank">⬇ DOWNLOAD</a>
+      <a href="DLSEgoNeORhM6IzF.mp4">
+        <img src="2024-01-06_060108.jpg" alt="Video thumbnail">
+        <p>zandile from soweto</p>
+      </a>
+    </div>
+
+    <div class="video-card">
+      <a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38" class="fake-download-badge" target="_blank">⬇ DOWNLOAD</a>
+      <a href="N2ez_xfdFJ5uCLBl.mp4">
+        <img src="2024-01-06_061341.jpg" alt="Video thumbnail">
+        <p>TSAKANI from Giyani</p>
+      </a>
+    </div>
+  </div>
+
+  <hr>
+
+  <div align="center" style="margin: 20px 0;">
+    <button><a href="SOUTHafricans2.html">NEXT</a></button>
+  </div>
+
+  <!-- Persistent Floating Pop-up Ad that stays when scrolling -->
+  <div class="floating-pop-ad">
+    <a href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38" target="_blank">
+      <img src="ads vu.jpg" alt="Popup Ad">
+    </a>
+  </div>
+
+</body>
+</html>
