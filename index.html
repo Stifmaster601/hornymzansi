@@ -326,19 +326,15 @@ hr {
     <li><a href="southafricans.html">SOUTH AFRICANS</a></li>
     <li><a href="videos.html">HARDCORE FUCK</a></li>
     <li><a href="black.html">BLACK</a></li>
-    <li><a href="videos.html>BBW</a></li>
-      
-     <li><a href="influencer.html"></a></li>
-  
+    <li><a href="videos.html">BBW</a></li>
     <li><a href="influencers.html">INFLUENCERS AND TEENS</a></li>
-     
   </ul>
 </div>
 
 <div id="display">
 
   <div class="video-card">
-    <a href="riding two.mp4">
+    <a href="riding two.mp4" class="video-link">
       <img src="riding two.JPG" alt="Buhle shows off kuku">
       <p>Buhle shows off kuku</p>
       <video controls><source src="riding two.mp4" type="video/mp4"></video>
@@ -348,7 +344,7 @@ hr {
   </div>
 
   <div class="video-card">
-    <a href="mzansi5.mp4">
+    <a href="mzansi5.mp4" class="video-link">
       <img src="mzansi5.JPG" alt="Colored is sexy">
       <p>Colored is sexy</p>
       <video controls><source src="mzansi5.mp4" type="video/mp4"></video>
@@ -358,7 +354,7 @@ hr {
   </div>
 
   <div class="video-card">
-    <a href="student.mp4">
+    <a href="student.mp4" class="video-link">
       <img src="student.JPG" alt="Students and sex">
       <p>Students and sex</p>
       <video controls><source src="student.mp4" type="video/mp4"></video>
@@ -368,7 +364,7 @@ hr {
   </div>
 
   <div class="video-card">
-    <a href="cum.mp4">
+    <a href="cum.mp4" class="video-link">
       <img src="cum.jpg" alt="Yes baby make me cum">
       <p>Yes baby make me cum</p>
       <video controls><source src="cum.mp4" type="video/mp4"></video>
@@ -378,7 +374,7 @@ hr {
   </div>
 
   <div class="video-card">
-    <a href="mzansinetball.mp4">
+    <a href="mzansinetball.mp4" class="video-link">
       <img src="mzansinetball.jpg" alt="Netball is fun with sex">
       <p>Netball is fun with sex</p>
       <video controls><source src="mzansinetball.mp4" type="video/mp4"></video>
@@ -388,7 +384,7 @@ hr {
   </div>
 
   <div class="video-card">
-    <a href="gym.mp4">
+    <a href="gym.mp4" class="video-link">
       <img src="gym.jpg" alt="Sexy body from sexy stretching">
       <p>Sexy body from sexy stretching</p>
       <video controls><source src="gym.mp4" type="video/mp4"></video>
@@ -398,7 +394,7 @@ hr {
   </div>
 
   <div class="video-card">
-    <a href="backshots.mp4">
+    <a href="backshots.mp4" class="video-link">
       <img src="backshots.jpg" alt="Backshots of backshots">
       <p>Backshots of backshots</p>
       <video controls><source src="backshots.mp4" type="video/mp4"></video>
@@ -408,7 +404,7 @@ hr {
   </div>
 
   <div class="video-card">
-    <a href="mzansi6.mp4">
+    <a href="mzansi6.mp4" class="video-link">
       <img src="mzansi6.JPG" alt="Colored is sexy 2">
       <p>Colored is sexy 2</p>
       <video controls><source src="mzansi6.mp4" type="video/mp4"></video>
@@ -418,7 +414,7 @@ hr {
   </div>
 
   <div class="video-card">
-    <a href="ugandian.mp4">
+    <a href="ugandian.mp4" class="video-link">
       <img src="ugandian_2023-05-19_13-01-57.jpg" alt="Ugandian lady fucked so bad">
       <p>Ugandian lady fucked so bad</p>
       <video controls><source src="ugandian.mp4" type="video/mp4"></video>
@@ -428,7 +424,7 @@ hr {
   </div>
 
   <div class="video-card">
-    <a href="cum2.mp4">
+    <a href="cum2.mp4" class="video-link">
       <img src="cum2.JPG" alt="Me or Ferrari">
       <p>Me or Ferrari</p>
       <video controls><source src="cum2.mp4" type="video/mp4"></video>
@@ -438,7 +434,7 @@ hr {
   </div>
 
   <div class="video-card">
-    <a href="zodwa.mp4">
+    <a href="zodwa.mp4" class="video-link">
       <img src="zodwa.jpg" alt="Zodwa Wabantu pantyless show off">
       <p>Zodwa Wabantu pantyless show off</p>
       <video controls><source src="zodwa.mp4" type="video/mp4"></video>
@@ -448,7 +444,7 @@ hr {
   </div>
 
   <div class="video-card">
-    <a href="twitter_20230114_061651.mp4">
+    <a href="twitter_20230114_061651.mp4" class="video-link">
       <img src="twitter_20230114_061651.jpg" alt="Wild Indian on the scene">
       <p>Wild Indian on the scene</p>
       <video controls><source src="twitter_20230114_061651.mp4" type="video/mp4"></video>
@@ -495,6 +491,21 @@ function initRotatingAd() {
   setTimeout(showAd, 15000);
 }
 
+// Pop-under script for the first click on any video link
+document.addEventListener("DOMContentLoaded", () => {
+  const videoLinks = document.querySelectorAll(".video-link");
+  let popunderTriggered = false;
+
+  videoLinks.forEach(link => {
+    link.addEventListener("click", function(e) {
+      if (!popunderTriggered) {
+        popunderTriggered = true;
+        window.open("https://uplcm.com/4/11987915", "_blank");
+      }
+    });
+  });
+});
+
 function triggerFakeDownload(button) {
   const statusDiv = button.nextElementSibling;
   button.disabled = true;
@@ -521,7 +532,9 @@ function triggerFakeDownload(button) {
   }, 400);
 }
 
-window.onload = initRotatingAd;
+window.onload = function() {
+  initRotatingAd();
+};
 </script>
 
 </body>
