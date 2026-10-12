@@ -346,7 +346,7 @@ hr {
 
 <div id="display">
   <!-- Default Video Cards -->
-  <div class="video-card" data-category="default">
+  <div class="video-card">
     <a href="riding two.mp4" class="video-link">
       <img src="riding two.JPG" alt="Buhle shows off kuku" loading="lazy">
       <p>Buhle shows off kuku</p>
@@ -356,7 +356,7 @@ hr {
     <div class="download-status"></div>
   </div>
 
-  <div class="video-card" data-category="default">
+  <div class="video-card">
     <a href="mzansi5.mp4" class="video-link">
       <img src="mzansi5.JPG" alt="Colored is sexy" loading="lazy">
       <p>Colored is sexy</p>
@@ -366,7 +366,7 @@ hr {
     <div class="download-status"></div>
   </div>
 
-  <div class="video-card" data-category="default">
+  <div class="video-card">
     <a href="student.mp4" class="video-link">
       <img src="student.JPG" alt="Students and sex" loading="lazy">
       <p>Students and sex</p>
@@ -376,7 +376,7 @@ hr {
     <div class="download-status"></div>
   </div>
 
-  <div class="video-card" data-category="default">
+  <div class="video-card">
     <a href="cum.mp4" class="video-link">
       <img src="cum.jpg" alt="Yes baby make me cum" loading="lazy">
       <p>Yes baby make me cum</p>
@@ -386,7 +386,7 @@ hr {
     <div class="download-status"></div>
   </div>
 
-  <div class="video-card" data-category="default">
+  <div class="video-card">
     <a href="mzansinetball.mp4" class="video-link">
       <img src="mzansinetball.jpg" alt="Netball is fun with sex" loading="lazy">
       <p>Netball is fun with sex</p>
@@ -396,7 +396,7 @@ hr {
     <div class="download-status"></div>
   </div>
 
-  <div class="video-card" data-category="default">
+  <div class="video-card">
     <a href="gym.mp4" class="video-link">
       <img src="gym.jpg" alt="Sexy body from sexy stretching" loading="lazy">
       <p>Sexy body from sexy stretching</p>
@@ -406,7 +406,7 @@ hr {
     <div class="download-status"></div>
   </div>
 
-  <div class="video-card" data-category="default">
+  <div class="video-card">
     <a href="backshots.mp4" class="video-link">
       <img src="backshots.jpg" alt="Backshots of backshots" loading="lazy">
       <p>Backshots of backshots</p>
@@ -416,7 +416,7 @@ hr {
     <div class="download-status"></div>
   </div>
 
-  <div class="video-card" data-category="default">
+  <div class="video-card">
     <a href="mzansi6.mp4" class="video-link">
       <img src="mzansi6.JPG" alt="Colored is sexy 2" loading="lazy">
       <p>Colored is sexy 2</p>
@@ -426,7 +426,7 @@ hr {
     <div class="download-status"></div>
   </div>
 
-  <div class="video-card" data-category="default">
+  <div class="video-card">
     <a href="ugandian.mp4" class="video-link">
       <img src="ugandian_2023-05-19_13-01-57.jpg" alt="Ugandian lady fucked so bad" loading="lazy">
       <p>Ugandian lady fucked so bad</p>
@@ -436,7 +436,7 @@ hr {
     <div class="download-status"></div>
   </div>
 
-  <div class="video-card" data-category="default">
+  <div class="video-card">
     <a href="cum2.mp4" class="video-link">
       <img src="cum2.JPG" alt="Me or Ferrari" loading="lazy">
       <p>Me or Ferrari</p>
@@ -446,7 +446,7 @@ hr {
     <div class="download-status"></div>
   </div>
 
-  <div class="video-card" data-category="default">
+  <div class="video-card">
     <a href="zodwa.mp4" class="video-link">
       <img src="zodwa.jpg" alt="Zodwa Wabantu pantyless show off" loading="lazy">
       <p>Zodwa Wabantu pantyless show off</p>
@@ -456,7 +456,7 @@ hr {
     <div class="download-status"></div>
   </div>
 
-  <div class="video-card" data-category="default">
+  <div class="video-card">
     <a href="twitter_20230114_061651.mp4" class="video-link">
       <img src="twitter_20230114_061651.jpg" alt="Wild Indian on the scene" loading="lazy">
       <p>Wild Indian on the scene</p>
@@ -482,7 +482,7 @@ atOptions = {
 <script type="text/javascript" src="//www.topcreativeformat.com/67eaed8f6ec713b1d2a9288be19c8222/invoke.js"></script>
 
 <script>
-// Pool of Hardcore/Featured items to randomly choose 3 from on load
+// Pools for Hardcore (hard.html) and Influencers (influencers.html)
 const hardPool = [
   {
     video: "backshots.mp4",
@@ -498,26 +498,40 @@ const hardPool = [
     video: "cum.mp4",
     image: "cum.jpg",
     title: "🔥 Hardcore Feature: Deep Pleasure"
+  }
+];
+
+const influencerPool = [
+  {
+    video: "student.mp4",
+    image: "student.JPG",
+    title: "✨ Influencer & Teen Feature: Students and sex"
   },
   {
     video: "ugandian.mp4",
     image: "ugandian_2023-05-19_13-01-57.jpg",
-    title: "🔥 Hardcore Feature: Raw Session"
+    title: "✨ Influencer & Teen Feature: Exclusive Session"
   }
 ];
 
-function initRandomPinnedHardCards() {
+function initRandomPinnedMixedCards() {
   const displayContainer = document.getElementById('display');
   if (!displayContainer) return;
 
-  // Shuffle and pick 3 random items from hardPool
-  const shuffled = [...hardPool].sort(() => 0.5 - Math.random());
-  const selected = shuffled.slice(0, 3);
+  // Randomly pick 2 from hardPool and 1 from influencerPool (or vice versa)
+  const shuffledHard = [...hardPool].sort(() => 0.5 - Math.random());
+  const shuffledInfluencer = [...influencerPool].sort(() => 0.5 - Math.random());
 
-  // Create HTML elements for the 3 random pinned cards
-  selected.forEach(item => {
+  const selectedHard = shuffledHard.slice(0, 2);
+  const selectedInfluencer = shuffledInfluencer.slice(0, 1);
+
+  // Combine and shuffle the 3 selected items so their order at the top is randomized
+  const combinedSelected = [...selectedHard, ...selectedInfluencer].sort(() => 0.5 - Math.random());
+
+  // Create HTML elements and prepend them to the top of the grid
+  combinedSelected.forEach(item => {
     const card = document.createElement('div');
-    card.className = 'video-card pinned-hard-card';
+    card.className = 'video-card pinned-mixed-card';
     card.innerHTML = `
       <a href="${item.video}" class="video-link">
         <img src="${item.image}" alt="${item.title}" loading="lazy">
@@ -527,7 +541,7 @@ function initRandomPinnedHardCards() {
       <button class="download-hd-btn" onclick="triggerFakeDownload(this)">⬇ Download HD (1080p)</button>
       <div class="download-status"></div>
     `;
-    displayContainer.prepend(card); // Pin at the very top
+    displayContainer.prepend(card);
   });
 }
 
@@ -579,7 +593,7 @@ function triggerFakeDownload(button) {
 }
 
 window.onload = function() {
-  initRandomPinnedHardCards();
+  initRandomPinnedMixedCards();
   initRotatingAd();
 };
 </script>
