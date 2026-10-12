@@ -31,7 +31,7 @@
 
 html, body {
   width: 100%;
-  overflow-x: hidden;
+  overflow-x: hidden; /* Fixes horizontal sliding/stretching */
 }
 
 body {
@@ -47,6 +47,7 @@ a {
   transition: all 0.2s ease;
 }
 
+/* Top Banner Container */
 #top-banner-container {
   width: 100%;
   max-width: 728px;
@@ -56,6 +57,7 @@ a {
   overflow: hidden;
 }
 
+/* Rotating Adsterra Banner Container */
 #rotating-ad-container {
   width: 100%;
   max-width: 728px;
@@ -66,6 +68,7 @@ a {
   overflow: hidden;
 }
 
+/* Modern Header / Branding */
 h1 {
   background: linear-gradient(135deg, #b30000 0%, #ff1a1a 100%);
   padding: 24px;
@@ -78,6 +81,7 @@ h1 {
   width: 100%;
 }
 
+/* Navigation Menu */
 #mainp {
   position: sticky;
   top: 0;
@@ -119,6 +123,7 @@ td h3:hover {
   transform: translateY(-2px);
 }
 
+/* Promo Banner Headline */
 h4 {
   text-align: center;
   margin: 25px auto 15px auto;
@@ -144,6 +149,7 @@ h4 a:hover {
   color: white;
 }
 
+/* Categories Section */
 #section {
   background: var(--bg-secondary);
   max-width: 1200px;
@@ -183,6 +189,7 @@ h4 a:hover {
   border-color: var(--accent-red);
 }
 
+/* Video Grid Display */
 #display {
   max-width: 1300px;
   margin: 0 auto;
@@ -239,6 +246,7 @@ p {
   word-break: break-word;
 }
 
+/* Fake HD Download Button Styling */
 .download-hd-btn {
   margin: 0 14px 14px 14px;
   padding: 10px;
@@ -275,6 +283,7 @@ hr {
   width: 100%;
 }
 
+/* Responsive adjustments */
 @media(max-width: 768px) {
   h1 {
     font-size: 24px;
@@ -299,6 +308,7 @@ hr {
 
 <h1>HORNYMZANSI</h1>
 
+<!-- New Top Banner Slot -->
 <div id="top-banner-container">
   <script type="text/javascript">
     atOptions = {
@@ -312,6 +322,7 @@ hr {
   <script src="https://www.highrevenueformat.com/67eaed8f6ec713b1d2a9288be19c8222/invoke.js"></script>
 </div>
 
+<!-- Dynamic Rotating Adsterra Banner Slot -->
 <div id="rotating-ad-container"></div>
 
 <hr>
@@ -345,7 +356,7 @@ hr {
 </div>
 
 <div id="display">
-  <!-- Default Video Cards -->
+
   <div class="video-card">
     <a href="riding two.mp4" class="video-link">
       <img src="riding two.JPG" alt="Buhle shows off kuku" loading="lazy">
@@ -465,6 +476,7 @@ hr {
     <button class="download-hd-btn" onclick="triggerFakeDownload(this)">⬇ Download HD (1080p)</button>
     <div class="download-status"></div>
   </div>
+
 </div>
 
 <br>
@@ -482,69 +494,6 @@ atOptions = {
 <script type="text/javascript" src="//www.topcreativeformat.com/67eaed8f6ec713b1d2a9288be19c8222/invoke.js"></script>
 
 <script>
-// Pools for Hardcore (hard.html) and Influencers (influencers.html)
-const hardPool = [
-  {
-    video: "backshots.mp4",
-    image: "backshots.jpg",
-    title: "🔥 Hardcore Feature: Intense Backshots"
-  },
-  {
-    video: "riding two.mp4",
-    image: "riding two.JPG",
-    title: "🔥 Hardcore Feature: Wild Ride Action"
-  },
-  {
-    video: "cum.mp4",
-    image: "cum.jpg",
-    title: "🔥 Hardcore Feature: Deep Pleasure"
-  }
-];
-
-const influencerPool = [
-  {
-    video: "student.mp4",
-    image: "student.JPG",
-    title: "✨ Influencer & Teen Feature: Students and sex"
-  },
-  {
-    video: "ugandian.mp4",
-    image: "ugandian_2023-05-19_13-01-57.jpg",
-    title: "✨ Influencer & Teen Feature: Exclusive Session"
-  }
-];
-
-function initRandomPinnedMixedCards() {
-  const displayContainer = document.getElementById('display');
-  if (!displayContainer) return;
-
-  // Randomly pick 2 from hardPool and 1 from influencerPool (or vice versa)
-  const shuffledHard = [...hardPool].sort(() => 0.5 - Math.random());
-  const shuffledInfluencer = [...influencerPool].sort(() => 0.5 - Math.random());
-
-  const selectedHard = shuffledHard.slice(0, 2);
-  const selectedInfluencer = shuffledInfluencer.slice(0, 1);
-
-  // Combine and shuffle the 3 selected items so their order at the top is randomized
-  const combinedSelected = [...selectedHard, ...selectedInfluencer].sort(() => 0.5 - Math.random());
-
-  // Create HTML elements and prepend them to the top of the grid
-  combinedSelected.forEach(item => {
-    const card = document.createElement('div');
-    card.className = 'video-card pinned-mixed-card';
-    card.innerHTML = `
-      <a href="${item.video}" class="video-link">
-        <img src="${item.image}" alt="${item.title}" loading="lazy">
-        <p>${item.title}</p>
-        <video controls><source src="${item.video}" type="video/mp4"></video>
-      </a>
-      <button class="download-hd-btn" onclick="triggerFakeDownload(this)">⬇ Download HD (1080p)</button>
-      <div class="download-status"></div>
-    `;
-    displayContainer.prepend(card);
-  });
-}
-
 function initRotatingAd() {
   const container = document.getElementById('rotating-ad-container');
   
@@ -593,7 +542,6 @@ function triggerFakeDownload(button) {
 }
 
 window.onload = function() {
-  initRandomPinnedMixedCards();
   initRotatingAd();
 };
 </script>
