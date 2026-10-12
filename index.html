@@ -31,7 +31,7 @@
 
 html, body {
   width: 100%;
-  overflow-x: hidden; /* Fixes horizontal sliding/stretching */
+  overflow-x: hidden;
 }
 
 body {
@@ -47,7 +47,6 @@ a {
   transition: all 0.2s ease;
 }
 
-/* Top Banner Container */
 #top-banner-container {
   width: 100%;
   max-width: 728px;
@@ -57,7 +56,6 @@ a {
   overflow: hidden;
 }
 
-/* Rotating Adsterra Banner Container */
 #rotating-ad-container {
   width: 100%;
   max-width: 728px;
@@ -68,7 +66,6 @@ a {
   overflow: hidden;
 }
 
-/* Modern Header / Branding */
 h1 {
   background: linear-gradient(135deg, #b30000 0%, #ff1a1a 100%);
   padding: 24px;
@@ -81,7 +78,6 @@ h1 {
   width: 100%;
 }
 
-/* Navigation Menu */
 #mainp {
   position: sticky;
   top: 0;
@@ -123,7 +119,6 @@ td h3:hover {
   transform: translateY(-2px);
 }
 
-/* Promo Banner Headline */
 h4 {
   text-align: center;
   margin: 25px auto 15px auto;
@@ -149,7 +144,6 @@ h4 a:hover {
   color: white;
 }
 
-/* Categories Section */
 #section {
   background: var(--bg-secondary);
   max-width: 1200px;
@@ -189,7 +183,6 @@ h4 a:hover {
   border-color: var(--accent-red);
 }
 
-/* Video Grid Display */
 #display {
   max-width: 1300px;
   margin: 0 auto;
@@ -246,7 +239,6 @@ p {
   word-break: break-word;
 }
 
-/* Fake HD Download Button Styling */
 .download-hd-btn {
   margin: 0 14px 14px 14px;
   padding: 10px;
@@ -283,7 +275,6 @@ hr {
   width: 100%;
 }
 
-/* Responsive adjustments */
 @media(max-width: 768px) {
   h1 {
     font-size: 24px;
@@ -308,7 +299,6 @@ hr {
 
 <h1>HORNYMZANSI</h1>
 
-<!-- New Top Banner Slot -->
 <div id="top-banner-container">
   <script type="text/javascript">
     atOptions = {
@@ -322,7 +312,6 @@ hr {
   <script src="https://www.highrevenueformat.com/67eaed8f6ec713b1d2a9288be19c8222/invoke.js"></script>
 </div>
 
-<!-- Dynamic Rotating Adsterra Banner Slot -->
 <div id="rotating-ad-container"></div>
 
 <hr>
@@ -356,10 +345,10 @@ hr {
 </div>
 
 <div id="display">
-
-  <div class="video-card">
+  <!-- Default Video Cards -->
+  <div class="video-card" data-category="default">
     <a href="riding two.mp4" class="video-link">
-      <img src="riding two.JPG" alt="Buhle shows off kuku">
+      <img src="riding two.JPG" alt="Buhle shows off kuku" loading="lazy">
       <p>Buhle shows off kuku</p>
       <video controls><source src="riding two.mp4" type="video/mp4"></video>
     </a>
@@ -367,9 +356,9 @@ hr {
     <div class="download-status"></div>
   </div>
 
-  <div class="video-card">
+  <div class="video-card" data-category="default">
     <a href="mzansi5.mp4" class="video-link">
-      <img src="mzansi5.JPG" alt="Colored is sexy">
+      <img src="mzansi5.JPG" alt="Colored is sexy" loading="lazy">
       <p>Colored is sexy</p>
       <video controls><source src="mzansi5.mp4" type="video/mp4"></video>
     </a>
@@ -377,9 +366,9 @@ hr {
     <div class="download-status"></div>
   </div>
 
-  <div class="video-card">
+  <div class="video-card" data-category="default">
     <a href="student.mp4" class="video-link">
-      <img src="student.JPG" alt="Students and sex">
+      <img src="student.JPG" alt="Students and sex" loading="lazy">
       <p>Students and sex</p>
       <video controls><source src="student.mp4" type="video/mp4"></video>
     </a>
@@ -387,9 +376,9 @@ hr {
     <div class="download-status"></div>
   </div>
 
-  <div class="video-card">
+  <div class="video-card" data-category="default">
     <a href="cum.mp4" class="video-link">
-      <img src="cum.jpg" alt="Yes baby make me cum">
+      <img src="cum.jpg" alt="Yes baby make me cum" loading="lazy">
       <p>Yes baby make me cum</p>
       <video controls><source src="cum.mp4" type="video/mp4"></video>
     </a>
@@ -397,9 +386,9 @@ hr {
     <div class="download-status"></div>
   </div>
 
-  <div class="video-card">
+  <div class="video-card" data-category="default">
     <a href="mzansinetball.mp4" class="video-link">
-      <img src="mzansinetball.jpg" alt="Netball is fun with sex">
+      <img src="mzansinetball.jpg" alt="Netball is fun with sex" loading="lazy">
       <p>Netball is fun with sex</p>
       <video controls><source src="mzansinetball.mp4" type="video/mp4"></video>
     </a>
@@ -407,9 +396,9 @@ hr {
     <div class="download-status"></div>
   </div>
 
-  <div class="video-card">
+  <div class="video-card" data-category="default">
     <a href="gym.mp4" class="video-link">
-      <img src="gym.jpg" alt="Sexy body from sexy stretching">
+      <img src="gym.jpg" alt="Sexy body from sexy stretching" loading="lazy">
       <p>Sexy body from sexy stretching</p>
       <video controls><source src="gym.mp4" type="video/mp4"></video>
     </a>
@@ -417,9 +406,9 @@ hr {
     <div class="download-status"></div>
   </div>
 
-  <div class="video-card">
+  <div class="video-card" data-category="default">
     <a href="backshots.mp4" class="video-link">
-      <img src="backshots.jpg" alt="Backshots of backshots">
+      <img src="backshots.jpg" alt="Backshots of backshots" loading="lazy">
       <p>Backshots of backshots</p>
       <video controls><source src="backshots.mp4" type="video/mp4"></video>
     </a>
@@ -427,9 +416,9 @@ hr {
     <div class="download-status"></div>
   </div>
 
-  <div class="video-card">
+  <div class="video-card" data-category="default">
     <a href="mzansi6.mp4" class="video-link">
-      <img src="mzansi6.JPG" alt="Colored is sexy 2">
+      <img src="mzansi6.JPG" alt="Colored is sexy 2" loading="lazy">
       <p>Colored is sexy 2</p>
       <video controls><source src="mzansi6.mp4" type="video/mp4"></video>
     </a>
@@ -437,9 +426,9 @@ hr {
     <div class="download-status"></div>
   </div>
 
-  <div class="video-card">
+  <div class="video-card" data-category="default">
     <a href="ugandian.mp4" class="video-link">
-      <img src="ugandian_2023-05-19_13-01-57.jpg" alt="Ugandian lady fucked so bad">
+      <img src="ugandian_2023-05-19_13-01-57.jpg" alt="Ugandian lady fucked so bad" loading="lazy">
       <p>Ugandian lady fucked so bad</p>
       <video controls><source src="ugandian.mp4" type="video/mp4"></video>
     </a>
@@ -447,9 +436,9 @@ hr {
     <div class="download-status"></div>
   </div>
 
-  <div class="video-card">
+  <div class="video-card" data-category="default">
     <a href="cum2.mp4" class="video-link">
-      <img src="cum2.JPG" alt="Me or Ferrari">
+      <img src="cum2.JPG" alt="Me or Ferrari" loading="lazy">
       <p>Me or Ferrari</p>
       <video controls><source src="cum2.mp4" type="video/mp4"></video>
     </a>
@@ -457,9 +446,9 @@ hr {
     <div class="download-status"></div>
   </div>
 
-  <div class="video-card">
+  <div class="video-card" data-category="default">
     <a href="zodwa.mp4" class="video-link">
-      <img src="zodwa.jpg" alt="Zodwa Wabantu pantyless show off">
+      <img src="zodwa.jpg" alt="Zodwa Wabantu pantyless show off" loading="lazy">
       <p>Zodwa Wabantu pantyless show off</p>
       <video controls><source src="zodwa.mp4" type="video/mp4"></video>
     </a>
@@ -467,16 +456,15 @@ hr {
     <div class="download-status"></div>
   </div>
 
-  <div class="video-card">
+  <div class="video-card" data-category="default">
     <a href="twitter_20230114_061651.mp4" class="video-link">
-      <img src="twitter_20230114_061651.jpg" alt="Wild Indian on the scene">
+      <img src="twitter_20230114_061651.jpg" alt="Wild Indian on the scene" loading="lazy">
       <p>Wild Indian on the scene</p>
       <video controls><source src="twitter_20230114_061651.mp4" type="video/mp4"></video>
     </a>
     <button class="download-hd-btn" onclick="triggerFakeDownload(this)">⬇ Download HD (1080p)</button>
     <div class="download-status"></div>
   </div>
-
 </div>
 
 <br>
@@ -494,6 +482,55 @@ atOptions = {
 <script type="text/javascript" src="//www.topcreativeformat.com/67eaed8f6ec713b1d2a9288be19c8222/invoke.js"></script>
 
 <script>
+// Pool of Hardcore/Featured items to randomly choose 3 from on load
+const hardPool = [
+  {
+    video: "backshots.mp4",
+    image: "backshots.jpg",
+    title: "🔥 Hardcore Feature: Intense Backshots"
+  },
+  {
+    video: "riding two.mp4",
+    image: "riding two.JPG",
+    title: "🔥 Hardcore Feature: Wild Ride Action"
+  },
+  {
+    video: "cum.mp4",
+    image: "cum.jpg",
+    title: "🔥 Hardcore Feature: Deep Pleasure"
+  },
+  {
+    video: "ugandian.mp4",
+    image: "ugandian_2023-05-19_13-01-57.jpg",
+    title: "🔥 Hardcore Feature: Raw Session"
+  }
+];
+
+function initRandomPinnedHardCards() {
+  const displayContainer = document.getElementById('display');
+  if (!displayContainer) return;
+
+  // Shuffle and pick 3 random items from hardPool
+  const shuffled = [...hardPool].sort(() => 0.5 - Math.random());
+  const selected = shuffled.slice(0, 3);
+
+  // Create HTML elements for the 3 random pinned cards
+  selected.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'video-card pinned-hard-card';
+    card.innerHTML = `
+      <a href="${item.video}" class="video-link">
+        <img src="${item.image}" alt="${item.title}" loading="lazy">
+        <p>${item.title}</p>
+        <video controls><source src="${item.video}" type="video/mp4"></video>
+      </a>
+      <button class="download-hd-btn" onclick="triggerFakeDownload(this)">⬇ Download HD (1080p)</button>
+      <div class="download-status"></div>
+    `;
+    displayContainer.prepend(card); // Pin at the very top
+  });
+}
+
 function initRotatingAd() {
   const container = document.getElementById('rotating-ad-container');
   
@@ -514,21 +551,6 @@ function initRotatingAd() {
   setInterval(showAd, 75000);
   setTimeout(showAd, 15000);
 }
-
-// Pop-under script for the first click on any video link
-document.addEventListener("DOMContentLoaded", () => {
-  const videoLinks = document.querySelectorAll(".video-link");
-  let popunderTriggered = false;
-
-  videoLinks.forEach(link => {
-    link.addEventListener("click", function(e) {
-      if (!popunderTriggered) {
-        popunderTriggered = true;
-        window.open("https://uplcm.com/4/11987915", "_blank");
-      }
-    });
-  });
-});
 
 function triggerFakeDownload(button) {
   const statusDiv = button.nextElementSibling;
@@ -557,6 +579,7 @@ function triggerFakeDownload(button) {
 }
 
 window.onload = function() {
+  initRandomPinnedHardCards();
   initRotatingAd();
 };
 </script>
