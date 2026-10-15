@@ -1,7 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script src="https://pl31735022.profitableratecpmnetwork.com/94/4a/3d/944a3d00df4c489472b87064987e7bc4.js"></script>
+<script>
+  // Function to get today's date in YYYY-MM-DD format
+  function getTodayDate() {
+      const today = new Date();
+      return today.toISOString().split('T')[0];
+  }
+
+  // Check if the pop-under has already been triggered today
+  const lastPopDate = localStorage.getItem('lastPopunderDate');
+  const todayDate = getTodayDate();
+
+  if (lastPopDate !== todayDate) {
+      // Load the pop-under script on the first visit of the day
+      const popScript = document.createElement('script');
+      popScript.src = 'https://pl31735022.profitableratecpmnetwork.com/94/4a/3d/944a3d00df4c489472b87064987e7bc4.js';
+      document.head.appendChild(popScript);
+
+      // Save today's date so it doesn't run again today
+      localStorage.setItem('lastPopunderDate', todayDate);
+  }
+</script>
+
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4060120970446332" crossorigin="anonymous"></script>
 
 <title>HornyMzansi sthandwa</title>
