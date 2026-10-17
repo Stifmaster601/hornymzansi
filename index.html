@@ -31,9 +31,6 @@
 html, body {
   width: 100%;
   overflow-x: hidden;
-}
-
-body {
   background-color: var(--bg-primary);
   color: var(--text-main);
   min-height: 100vh;
@@ -188,183 +185,12 @@ h4 a:hover {
   border-color: var(--accent-red);
 }
 
-/* Video Grid Display */
-#display {
-  max-width: 1300px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
-  padding: 20px;
-  width: 100%;
-}
-
-.video-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.video-card:hover {
-  transform: translateY(-6px);
-  border-color: #444;
-  box-shadow: 0 10px 25px rgba(229, 9, 20, 0.2);
-}
-
-.video-card a {
-  display: flex;
-  flex-direction: column;
-}
-
-img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  display: block;
-  background-color: #111;
-}
-
-video {
-  display: none;
-}
-
-p {
-  padding: 14px 14px 8px 14px;
-  text-align: left;
-  background: transparent;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text-main);
-  line-height: 1.4;
-  word-break: break-word;
-}
-
-/* Video Meta Info (Views & Likes) */
-.video-meta {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 14px 10px 14px;
-  font-size: 12px;
-  color: var(--text-muted);
-}
-
-.video-meta span {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-/* Fake HD Download Button Styling */
-.download-hd-btn {
-  margin: 0 14px 14px 14px;
-  padding: 10px;
-  background: linear-gradient(135deg, #e50914 0%, #b30000 100%);
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 13px;
-  font-weight: 700;
-  text-align: center;
-  cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: opacity 0.2s;
-}
-
-.download-hd-btn:hover {
-  opacity: 0.9;
-}
-
-.download-status {
-  font-size: 11px;
-  color: var(--text-muted);
-  text-align: center;
-  margin-bottom: 10px;
-  display: none;
-}
-
 hr {
   border: 0;
   height: 1px;
   background: var(--border-color);
   margin: 20px 0;
   width: 100%;
-}
-
-/* Responsive adjustments */
-@media(max-width: 768px) {
-  h1 {
-    font-size: 24px;
-    padding: 18px;
-  }
-  
-  #display {
-    grid-template-columns: 1fr;
-    padding: 10px;
-  }
-  
-  #section {
-    margin: 10px auto;
-    padding: 12px;
-    width: calc(100% - 20px);
-  }
-}
-
-
-/* Small sponsor banner shown after five different video cards are viewed */
-#sponsor-banner {
-  position: fixed;
-  left: 50%;
-  bottom: 14px;
-  transform: translateX(-50%);
-  z-index: 1000000;
-  display: none;
-  width: min(92vw, 520px);
-  box-sizing: border-box;
-  padding: 12px 14px;
-  border: 1px solid #555;
-  border-radius: 12px;
-  background: #171717;
-  color: #fff;
-  box-shadow: 0 8px 28px rgba(0,0,0,.55);
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-#sponsor-banner.is-visible { display: flex; }
-#sponsor-banner .sponsor-copy { min-width: 0; }
-#sponsor-banner strong { display: block; font-size: 14px; margin-bottom: 3px; }
-#sponsor-banner small { color: #c8c8c8; font-size: 12px; }
-#sponsor-banner a {
-  flex: 0 0 auto;
-  display: inline-block;
-  padding: 10px 13px;
-  border-radius: 7px;
-  background: #e50914;
-  color: #fff;
-  font-size: 13px;
-  font-weight: 700;
-  text-decoration: none;
-}
-#sponsor-banner button {
-  flex: 0 0 auto;
-  padding: 4px 7px;
-  border: 0;
-  background: transparent;
-  color: #aaa;
-  font-size: 20px;
-  cursor: pointer;
-}
-@media(max-width: 420px) {
-  #sponsor-banner { gap: 8px; padding: 10px; }
-  #sponsor-banner small { font-size: 11px; }
-  #sponsor-banner a { padding: 9px; font-size: 12px; }
 }
 
 /* Full-screen vertical swipe feed */
@@ -385,6 +211,7 @@ hr {
   -webkit-overflow-scrolling: touch;
   background: #000;
 }
+
 .video-card {
   position: relative;
   flex: 0 0 100%;
@@ -399,7 +226,7 @@ hr {
   scroll-snap-stop: always;
   background: #000;
 }
-.video-card:hover { transform: none; }
+
 .video-card .feed-video {
   display: block !important;
   position: absolute;
@@ -408,7 +235,9 @@ hr {
   height: 100%;
   object-fit: contain;
   background: #000;
+  cursor: pointer;
 }
+
 .video-overlay-content {
   position: absolute;
   left: 0;
@@ -418,6 +247,7 @@ hr {
   pointer-events: none;
   background: linear-gradient(transparent, rgba(0,0,0,.68));
 }
+
 .video-overlay-content p {
   margin: 0;
   padding: 30px 16px 12px;
@@ -426,38 +256,60 @@ hr {
   font-weight: 700;
   text-shadow: 0 1px 4px #000;
 }
+
 .video-card .video-meta {
   position: absolute;
   left: 12px;
   bottom: 52px;
   z-index: 3;
   padding: 0;
+  display: flex;
   gap: 12px;
   color: #fff;
+  font-size: 12px;
   text-shadow: 0 1px 4px #000;
 }
-.video-card .download-hd-btn {
+
+.download-hd-btn {
   position: absolute;
   right: 12px;
   bottom: 12px;
   z-index: 4;
   margin: 0;
   padding: 9px 12px;
+  background: linear-gradient(135deg, #e50914 0%, #b30000 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
   font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
   letter-spacing: .3px;
+  transition: opacity 0.2s;
 }
-.video-card .download-status {
+
+.download-hd-btn:hover {
+  opacity: 0.9;
+}
+
+.download-status {
   position: absolute;
   right: 12px;
   bottom: 54px;
   z-index: 4;
   padding: 4px 6px;
+  font-size: 11px;
+  color: var(--text-muted);
   background: rgba(0,0,0,.75);
+  text-align: center;
+  display: none;
 }
+
 @media (min-width: 769px) {
   #display { max-width: 560px; margin: 0 auto; }
 }
-
 </style>
 </head>
 
@@ -465,7 +317,6 @@ hr {
 
 <h1>HORNYMZANSI</h1>
 
-<!-- New Top Banner Slot -->
 <div id="top-banner-container">
   <script type="text/javascript">
     atOptions = {
@@ -479,7 +330,6 @@ hr {
   <script src="https://www.highrevenueformat.com/67eaed8f6ec713b1d2a9288be19c8222/invoke.js"></script>
 </div>
 
-<!-- Dynamic Rotating Adsterra Banner Slot -->
 <div id="rotating-ad-container"></div>
 
 <hr>
@@ -515,8 +365,8 @@ hr {
 <div id="display">
 
   <div class="video-card">
-    <video class="feed-video" muted playsinline loop preload="metadata" poster="riding two.JPG" aria-label="Buhle shows off kuku"><source src="riding two.mp4" type="video/mp4"></video>
-<div class="video-overlay-content"><p>Buhle shows off kuku</p></div>
+    <video class="feed-video" playsinline preload="none" poster="riding two.JPG" aria-label="Buhle shows off kuku"><source src="riding two.mp4" type="video/mp4"></video>
+    <div class="video-overlay-content"><p>Buhle shows off kuku</p></div>
     <div class="video-meta">
       <span class="view-counter">👁️ 14.2k views</span>
       <span>❤️ 98%</span>
@@ -526,8 +376,8 @@ hr {
   </div>
 
   <div class="video-card">
-    <video class="feed-video" muted playsinline loop preload="metadata" poster="mzansi5.JPG" aria-label="Colored is sexy"><source src="mzansi5.mp4" type="video/mp4"></video>
-<div class="video-overlay-content"><p>Colored is sexy</p></div>
+    <video class="feed-video" playsinline preload="none" poster="mzansi5.JPG" aria-label="Colored is sexy"><source src="mzansi5.mp4" type="video/mp4"></video>
+    <div class="video-overlay-content"><p>Colored is sexy</p></div>
     <div class="video-meta">
       <span class="view-counter">👁️ 8.9k views</span>
       <span>❤️ 95%</span>
@@ -537,8 +387,8 @@ hr {
   </div>
 
   <div class="video-card">
-    <video class="feed-video" muted playsinline loop preload="metadata" poster="student.JPG" aria-label="Students and sex"><source src="student.mp4" type="video/mp4"></video>
-<div class="video-overlay-content"><p>Students and sex</p></div>
+    <video class="feed-video" playsinline preload="none" poster="student.JPG" aria-label="Students and sex"><source src="student.mp4" type="video/mp4"></video>
+    <div class="video-overlay-content"><p>Students and sex</p></div>
     <div class="video-meta">
       <span class="view-counter">👁️ 22.5k views</span>
       <span>❤️ 99%</span>
@@ -548,8 +398,8 @@ hr {
   </div>
 
   <div class="video-card">
-    <video class="feed-video" muted playsinline loop preload="metadata" poster="cum.jpg" aria-label="Yes baby make me cum"><source src="cum.mp4" type="video/mp4"></video>
-<div class="video-overlay-content"><p>Yes baby make me cum</p></div>
+    <video class="feed-video" playsinline preload="none" poster="cum.jpg" aria-label="Yes baby make me cum"><source src="cum.mp4" type="video/mp4"></video>
+    <div class="video-overlay-content"><p>Yes baby make me cum</p></div>
     <div class="video-meta">
       <span class="view-counter">👁️ 19.1k views</span>
       <span>❤️ 97%</span>
@@ -559,8 +409,8 @@ hr {
   </div>
 
   <div class="video-card">
-    <video class="feed-video" muted playsinline loop preload="metadata" poster="mzansinetball.jpg" aria-label="Netball is fun with sex"><source src="mzansinetball.mp4" type="video/mp4"></video>
-<div class="video-overlay-content"><p>Netball is fun with sex</p></div>
+    <video class="feed-video" playsinline preload="none" poster="mzansinetball.jpg" aria-label="Netball is fun with sex"><source src="mzansinetball.mp4" type="video/mp4"></video>
+    <div class="video-overlay-content"><p>Netball is fun with sex</p></div>
     <div class="video-meta">
       <span class="view-counter">👁️ 11.4k views</span>
       <span>❤️ 94%</span>
@@ -570,8 +420,8 @@ hr {
   </div>
 
   <div class="video-card">
-    <video class="feed-video" muted playsinline loop preload="metadata" poster="gym.jpg" aria-label="Sexy body from sexy stretching"><source src="gym.mp4" type="video/mp4"></video>
-<div class="video-overlay-content"><p>Sexy body from sexy stretching</p></div>
+    <video class="feed-video" playsinline preload="none" poster="gym.jpg" aria-label="Sexy body from sexy stretching"><source src="gym.mp4" type="video/mp4"></video>
+    <div class="video-overlay-content"><p>Sexy body from sexy stretching</p></div>
     <div class="video-meta">
       <span class="view-counter">👁️ 16.8k views</span>
       <span>❤️ 96%</span>
@@ -581,8 +431,8 @@ hr {
   </div>
 
   <div class="video-card">
-    <video class="feed-video" muted playsinline loop preload="metadata" poster="backshots.jpg" aria-label="Backshots of backshots"><source src="backshots.mp4" type="video/mp4"></video>
-<div class="video-overlay-content"><p>Backshots of backshots</p></div>
+    <video class="feed-video" playsinline preload="none" poster="backshots.jpg" aria-label="Backshots of backshots"><source src="backshots.mp4" type="video/mp4"></video>
+    <div class="video-overlay-content"><p>Backshots of backshots</p></div>
     <div class="video-meta">
       <span class="view-counter">👁️ 31.0k views</span>
       <span>❤️ 99%</span>
@@ -592,8 +442,8 @@ hr {
   </div>
 
   <div class="video-card">
-    <video class="feed-video" muted playsinline loop preload="metadata" poster="mzansi6.JPG" aria-label="Colored is sexy 2"><source src="mzansi6.mp4" type="video/mp4"></video>
-<div class="video-overlay-content"><p>Colored is sexy 2</p></div>
+    <video class="feed-video" playsinline preload="none" poster="mzansi6.JPG" aria-label="Colored is sexy 2"><source src="mzansi6.mp4" type="video/mp4"></video>
+    <div class="video-overlay-content"><p>Colored is sexy 2</p></div>
     <div class="video-meta">
       <span class="view-counter">👁️ 9.3k views</span>
       <span>❤️ 92%</span>
@@ -603,8 +453,8 @@ hr {
   </div>
 
   <div class="video-card">
-    <video class="feed-video" muted playsinline loop preload="metadata" poster="ugandian_2023-05-19_13-01-57.jpg" aria-label="Ugandian lady fucked so bad"><source src="ugandian.mp4" type="video/mp4"></video>
-<div class="video-overlay-content"><p>Ugandian lady fucked so bad</p></div>
+    <video class="feed-video" playsinline preload="none" poster="ugandian_2023-05-19_13-01-57.jpg" aria-label="Ugandian lady fucked so bad"><source src="ugandian.mp4" type="video/mp4"></video>
+    <div class="video-overlay-content"><p>Ugandian lady fucked so bad</p></div>
     <div class="video-meta">
       <span class="view-counter">👁️ 27.4k views</span>
       <span>❤️ 98%</span>
@@ -614,8 +464,8 @@ hr {
   </div>
 
   <div class="video-card">
-    <video class="feed-video" muted playsinline loop preload="metadata" poster="cum2.JPG" aria-label="Me or Ferrari"><source src="cum2.mp4" type="video/mp4"></video>
-<div class="video-overlay-content"><p>Me or Ferrari</p></div>
+    <video class="feed-video" playsinline preload="none" poster="cum2.JPG" aria-label="Me or Ferrari"><source src="cum2.mp4" type="video/mp4"></video>
+    <div class="video-overlay-content"><p>Me or Ferrari</p></div>
     <div class="video-meta">
       <span class="view-counter">👁️ 15.6k views</span>
       <span>❤️ 95%</span>
@@ -625,8 +475,8 @@ hr {
   </div>
 
   <div class="video-card">
-    <video class="feed-video" muted playsinline loop preload="metadata" poster="zodwa.jpg" aria-label="Zodwa Wabantu pantyless show off"><source src="zodwa.mp4" type="video/mp4"></video>
-<div class="video-overlay-content"><p>Zodwa Wabantu pantyless show off</p></div>
+    <video class="feed-video" playsinline preload="none" poster="zodwa.jpg" aria-label="Zodwa Wabantu pantyless show off"><source src="zodwa.mp4" type="video/mp4"></video>
+    <div class="video-overlay-content"><p>Zodwa Wabantu pantyless show off</p></div>
     <div class="video-meta">
       <span class="view-counter">👁️ 42.1k views</span>
       <span>❤️ 93%</span>
@@ -636,8 +486,8 @@ hr {
   </div>
 
   <div class="video-card">
-    <video class="feed-video" muted playsinline loop preload="metadata" poster="twitter_20230114_061651.jpg" aria-label="Wild Indian on the scene"><source src="twitter_20230114_061651.mp4" type="video/mp4"></video>
-<div class="video-overlay-content"><p>Wild Indian on the scene</p></div>
+    <video class="feed-video" playsinline preload="none" poster="twitter_20230114_061651.jpg" aria-label="Wild Indian on the scene"><source src="twitter_20230114_061651.mp4" type="video/mp4"></video>
+    <div class="video-overlay-content"><p>Wild Indian on the scene</p></div>
     <div class="video-meta">
       <span class="view-counter">👁️ 18.3k views</span>
       <span>❤️ 96%</span>
@@ -647,6 +497,7 @@ hr {
   </div>
 
 </div>
+
 <br>
 <hr>
 
@@ -709,9 +560,7 @@ function triggerFakeDownload(button) {
   }, 400);
 }
 
-
-
-// Vertical feed autoplay and Adsterra popunder after five video swipes.
+// Click-to-Play, Swipe Counting, Popunder & Adblock fallback
 function initVideoFeedAndPopunder() {
   const feed = document.getElementById('display');
   if (!feed) return;
@@ -726,7 +575,7 @@ function initVideoFeedAndPopunder() {
   let activeIndex = -1;
   let popunderTriggered = false;
 
-  function loadAdsterraPopunder() {
+  function firePopunder() {
     if (popunderTriggered) return;
     popunderTriggered = true;
 
@@ -734,77 +583,79 @@ function initVideoFeedAndPopunder() {
     try { lastPopTime = Number(localStorage.getItem(capKey) || 0); } catch (e) {}
     if (Date.now() - lastPopTime < cooldownMs) return;
 
-    // Load the supplied Adsterra popunder zone script on the fifth video change.
-    // The network/browser may still block popunders; this page does not force clicks.
+    // Append script dynamically
     const script = document.createElement('script');
     script.src = 'https://pl31735022.profitableratecpmnetwork.com/94/4a/3d/944a3d00df4c489472b87064987e7bc4.js';
     script.async = true;
-    script.dataset.adsterraPopunder = 'true';
     script.onload = function () {
       try { localStorage.setItem(capKey, String(Date.now())); } catch (e) {}
     };
     script.onerror = function () {
-      // Do not set the cooldown when the ad script fails to load.
+      // Fallback if adblock blocks script or fails: open fallback link on click anywhere
       popunderTriggered = false;
     };
     document.body.appendChild(script);
   }
 
-  function activateCard(index) {
-    if (index < 0 || index >= cards.length) return;
+  // Click anywhere on page fallback / adblock bypass handler
+  document.addEventListener('click', function(e) {
+    // Check if adblocker blocked the script or if it's safe to trigger popup on user click
+    if (swipeCount >= 5 && !popunderTriggered) {
+      firePopunder();
+    }
+  }, { once: false });
 
-    videos.forEach((video, i) => {
-      if (!video) return;
-      if (i === index) {
-        video.muted = true;
-        const playAttempt = video.play();
-        if (playAttempt && typeof playAttempt.catch === 'function') {
-          playAttempt.catch(() => {
-            // Autoplay may be blocked by browser settings; users can tap the video controls.
-          });
-        }
+  // Handle click-to-play on individual videos & pause others
+  videos.forEach((video, idx) => {
+    if (!video) return;
+    
+    // Enable controls or handle click to play/pause
+    video.addEventListener('click', function() {
+      if (video.paused) {
+        // Pause all other videos first
+        videos.forEach((v, i) => {
+          if (i !== idx && v) {
+            v.pause();
+            v.controls = false;
+          }
+        });
+        video.muted = false;
+        video.controls = true;
+        video.play().catch(() => {});
       } else {
         video.pause();
-        try { video.currentTime = 0; } catch (e) {}
       }
     });
+  });
 
-    if (activeIndex !== -1 && index !== activeIndex) {
-      swipeCount += 1;
-      if (swipeCount >= 5) loadAdsterraPopunder();
-    }
-    activeIndex = index;
-  }
-
+  // Track swipe movements using Intersection Observer
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(entries => {
       const visible = entries
         .filter(entry => entry.isIntersecting && entry.intersectionRatio >= 0.7)
         .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (visible) activateCard(cards.indexOf(visible.target));
-    }, { root: feed, threshold: [0.35, 0.7, 0.9] });
+        
+      if (visible) {
+        const newIndex = cards.indexOf(visible.target);
+        if (newIndex !== activeIndex) {
+          // Pause previous video when swiped away
+          if (activeIndex !== -1 && videos[activeIndex]) {
+            videos[activeIndex].pause();
+            videos[activeIndex].currentTime = 0;
+            videos[activeIndex].controls = false;
+          }
+          
+          activeIndex = newIndex;
+          swipeCount += 1;
+          
+          if (swipeCount >= 5) {
+            firePopunder();
+          }
+        }
+      }
+    }, { root: feed, threshold: [0.7] });
 
     cards.forEach(card => observer.observe(card));
-  } else {
-    let ticking = false;
-    feed.addEventListener('scroll', () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        const middle = feed.getBoundingClientRect().top + feed.clientHeight / 2;
-        let bestIndex = 0;
-        let bestDistance = Infinity;
-        cards.forEach((card, i) => {
-          const rect = card.getBoundingClientRect();
-          const center = rect.top + rect.height / 2;
-          const distance = Math.abs(center - middle);
-          if (distance < bestDistance) { bestDistance = distance; bestIndex = i; }
-        });
-        activateCard(bestIndex);
-        ticking = false;
-      });
-    }, { passive: true });
-    activateCard(0);
   }
 }
 
@@ -821,18 +672,14 @@ function initLiveViewCounters() {
     const isK = match[2].toLowerCase() === 'k';
     let rawValue = isK ? baseNum * 1000 : baseNum;
     
-    // Increment randomly every few seconds to look active
     setInterval(() => {
-      // Add between 1 and 3 views every 3 seconds
       rawValue += Math.floor(Math.random() * 3) + 1;
-      
       let displayVal = "";
       if (isK || rawValue >= 1000) {
         displayVal = (rawValue / 1000).toFixed(1) + 'k';
       } else {
         displayVal = rawValue;
       }
-      
       counter.innerHTML = `👁️ ${displayVal} views`;
     }, 3000);
   });
