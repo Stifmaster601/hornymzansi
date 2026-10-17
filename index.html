@@ -317,55 +317,6 @@ hr {
 }
 
 
-/* Small sponsor banner shown after five different video cards are viewed */
-#sponsor-banner {
-  position: fixed;
-  left: 50%;
-  bottom: 14px;
-  transform: translateX(-50%);
-  z-index: 1000000;
-  display: none;
-  width: min(92vw, 520px);
-  box-sizing: border-box;
-  padding: 12px 14px;
-  border: 1px solid #555;
-  border-radius: 12px;
-  background: #171717;
-  color: #fff;
-  box-shadow: 0 8px 28px rgba(0,0,0,.55);
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-#sponsor-banner.is-visible { display: flex; }
-#sponsor-banner .sponsor-copy { min-width: 0; }
-#sponsor-banner strong { display: block; font-size: 14px; margin-bottom: 3px; }
-#sponsor-banner small { color: #c8c8c8; font-size: 12px; }
-#sponsor-banner a {
-  flex: 0 0 auto;
-  display: inline-block;
-  padding: 10px 13px;
-  border-radius: 7px;
-  background: #e50914;
-  color: #fff;
-  font-size: 13px;
-  font-weight: 700;
-  text-decoration: none;
-}
-#sponsor-banner button {
-  flex: 0 0 auto;
-  padding: 4px 7px;
-  border: 0;
-  background: transparent;
-  color: #aaa;
-  font-size: 20px;
-  cursor: pointer;
-}
-@media(max-width: 420px) {
-  #sponsor-banner { gap: 8px; padding: 10px; }
-  #sponsor-banner small { font-size: 11px; }
-  #sponsor-banner a { padding: 9px; font-size: 12px; }
-}
 </style>
 </head>
 
@@ -594,16 +545,6 @@ hr {
 
 
 
-<!-- Clearly labelled sponsor banner appears after five different video cards are viewed. -->
-<div id="sponsor-banner" aria-label="Sponsored link" aria-hidden="true">
-  <div class="sponsor-copy">
-    <strong>Sponsored</strong>
-    <small>Thanks for watching — support this site.</small>
-  </div>
-  <a id="sponsor-banner-link" href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38" target="_blank" rel="noopener noreferrer">Visit sponsor</a>
-  <button type="button" id="close-sponsor-banner" aria-label="Close sponsor banner">×</button>
-</div>
-
 <br>
 <hr>
 
@@ -668,13 +609,12 @@ function triggerFakeDownload(button) {
 
 
 
-// Show a small, clearly labelled sponsor banner after five distinct video cards
-// have entered the viewport. It does not hijack clicks elsewhere on the page.
+// Pop-under trigger: after five different MP4 videos actually start playing,
+// the next user click anywhere attempts to open the sponsor landing page in a
+// background tab. The visitor's original click is not cancelled or redirected.
 function initSponsorCheckpoint() {
-  const cards = Array.from(document.querySelectorAll('#display .video-card'));
-  const banner = document.getElementById('sponsor-banner');
-  const closeButton = document.getElementById('close-sponsor-banner');
-  if (!cards.length || !banner || !closeButton) return;
+  const videos = Array.from(document.querySelectorAll('#display .video-card video'));
+  if (!videos.length) return;
 
   const storageKey = 'hornymzansi_sponsor_checkpoint_last_shown';
   const cooldownMs = 60 * 60 * 1000;
@@ -682,48 +622,29 @@ function initSponsorCheckpoint() {
   try { lastShown = Number(localStorage.getItem(storageKey) || 0); } catch (e) {}
   if (Date.now() - lastShown < cooldownMs) return;
 
-  const viewed = new Set();
-  let alreadyShown = false;
-  function showBanner() {
-    if (alreadyShown) return;
-    alreadyShown = true;
-    try { localStorage.setItem(storageKey, String(Date.now())); } catch (e) {}
-    banner.classList.add('is-visible');
-    banner.setAttribute('aria-hidden', 'false');
-  }
-  function hideBanner() {
-    banner.classList.remove('is-visible');
-    banner.setAttribute('aria-hidden', 'true');
-  }
-  closeButton.addEventListener('click', hideBanner);
+  const played = new Set();
+  let armed = false;
+  let opened = false;
+  const sponsorUrl = 'https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38';
 
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting && entry.intersectionRatio >= 0.35) {
-          viewed.add(entry.target);
-          if (viewed.size >= 5) {
-            observer.disconnect();
-            showBanner();
-          }
-        }
-      });
-    }, { threshold: [0.35, 0.5] });
-    cards.forEach(function (card) { observer.observe(card); });
-  } else {
-    function checkCards() {
-      cards.forEach(function (card) {
-        const rect = card.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.8 && rect.bottom > window.innerHeight * 0.2) viewed.add(card);
-      });
-      if (viewed.size >= 5) {
-        window.removeEventListener('scroll', checkCards);
-        showBanner();
-      }
+  videos.forEach(function (video) {
+    video.addEventListener('play', function () {
+      played.add(video);
+      if (played.size >= 5) armed = true;
+    }, { passive: true });
+  });
+
+  document.addEventListener('click', function () {
+    if (!armed || opened) return;
+    opened = true;
+    try { localStorage.setItem(storageKey, String(Date.now())); } catch (e) {}
+    // This is triggered by a real click, which is more likely to be allowed by
+    // popup blockers. Keep the main site open and preserve the clicked action.
+    const popup = window.open(sponsorUrl, '_blank', 'noopener,noreferrer');
+    if (popup) {
+      try { window.focus(); } catch (e) {}
     }
-    window.addEventListener('scroll', checkCards, { passive: true });
-    checkCards();
-  }
+  }, true);
 }
 
 // Live View Counter Script
