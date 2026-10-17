@@ -317,100 +317,55 @@ hr {
 }
 
 
-
-
-/* Vertical swipe video feed: one MP4 per snap position */
-html, body { height: 100%; }
-body { height: 100dvh; overflow: hidden; }
-#mainp { position: relative; flex: 0 0 auto; padding: 6px 12px; }
-#mainp h2 { font-size: 19px; margin: 0 0 3px; }
-#mainp table { max-width: 520px; }
-#mainp td h3 { padding: 6px 10px; font-size: 13px; }
-body { display: flex; flex-direction: column; }
-#display {
-  flex: 1 1 auto;
-  min-height: 0;
-  height: auto;
-  width: 100%;
-  max-width: none;
-  margin: 0;
-  padding: 0;
-  display: block;
-  overflow-y: auto;
-  overflow-x: hidden;
-  overscroll-behavior-y: contain;
-  scroll-snap-type: y mandatory;
-  -webkit-overflow-scrolling: touch;
-  background: #000;
-}
-#display .video-card {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  box-shadow: none;
-  overflow: hidden;
-  display: block;
-  background: #000;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-}
-#display .video-card video {
-  display: block !important;
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  background: #000;
-  z-index: 1;
-}
-#display .video-heading { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
-#display .video-heading img { display: none !important; }
-#display .video-heading p {
-  position: absolute;
-  left: 12px;
-  right: 88px;
-  bottom: 18px;
-  padding: 10px 12px;
-  margin: 0;
+/* Small sponsor banner shown after five different video cards are viewed */
+#sponsor-banner {
+  position: fixed;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  z-index: 1000000;
+  display: none;
+  width: min(92vw, 520px);
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 1px solid #555;
+  border-radius: 12px;
+  background: #171717;
   color: #fff;
-  font-size: 15px;
-  font-weight: 700;
-  text-shadow: 0 2px 6px #000;
-  background: linear-gradient(transparent, rgba(0,0,0,.72));
-}
-#display .video-meta {
-  position: absolute;
-  z-index: 3;
-  left: 12px;
-  bottom: 72px;
-  display: flex;
+  box-shadow: 0 8px 28px rgba(0,0,0,.55);
+  align-items: center;
+  justify-content: space-between;
   gap: 12px;
+}
+#sponsor-banner.is-visible { display: flex; }
+#sponsor-banner .sponsor-copy { min-width: 0; }
+#sponsor-banner strong { display: block; font-size: 14px; margin-bottom: 3px; }
+#sponsor-banner small { color: #c8c8c8; font-size: 12px; }
+#sponsor-banner a {
+  flex: 0 0 auto;
+  display: inline-block;
+  padding: 10px 13px;
+  border-radius: 7px;
+  background: #e50914;
   color: #fff;
-  text-shadow: 0 1px 4px #000;
-  pointer-events: none;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
 }
-#display .download-hd-btn {
-  position: relative;
-  z-index: 5;
-  float: right;
-  margin: 12px;
+#sponsor-banner button {
+  flex: 0 0 auto;
+  padding: 4px 7px;
+  border: 0;
+  background: transparent;
+  color: #aaa;
+  font-size: 20px;
+  cursor: pointer;
 }
-#display .download-status { position: absolute; z-index: 5; right: 12px; top: 52px; }
-#display .video-card:hover { transform: none; }
-@media (max-width: 600px) {
-  #mainp { padding: 5px 8px; }
-  #mainp h2 { font-size: 17px; }
-  #mainp td { padding: 0 3px; }
-  #mainp td h3 { padding: 6px 5px; font-size: 12px; }
-  #display .video-heading p { font-size: 14px; bottom: 16px; }
+@media(max-width: 420px) {
+  #sponsor-banner { gap: 8px; padding: 10px; }
+  #sponsor-banner small { font-size: 11px; }
+  #sponsor-banner a { padding: 9px; font-size: 12px; }
 }
-
 </style>
 </head>
 
@@ -468,8 +423,11 @@ body { display: flex; flex-direction: column; }
 <div id="display">
 
   <div class="video-card">
-    <div class="video-heading"><img src="riding two.JPG" alt="Buhle shows off kuku" loading="lazy"><p>Buhle shows off kuku</p></div>
-    <video controls><source src="riding two.mp4" type="video/mp4"></video>
+    <a href="riding two.mp4" class="video-link">
+      <img src="riding two.JPG" alt="Buhle shows off kuku" loading="lazy">
+      <p>Buhle shows off kuku</p>
+      <video controls><source src="riding two.mp4" type="video/mp4"></video>
+    </a>
     <div class="video-meta">
       <span class="view-counter">👁️ 14.2k views</span>
       <span>❤️ 98%</span>
@@ -479,8 +437,11 @@ body { display: flex; flex-direction: column; }
   </div>
 
   <div class="video-card">
-    <div class="video-heading"><img src="mzansi5.JPG" alt="Colored is sexy" loading="lazy"><p>Colored is sexy</p></div>
-    <video controls><source src="mzansi5.mp4" type="video/mp4"></video>
+    <a href="mzansi5.mp4" class="video-link">
+      <img src="mzansi5.JPG" alt="Colored is sexy" loading="lazy">
+      <p>Colored is sexy</p>
+      <video controls><source src="mzansi5.mp4" type="video/mp4"></video>
+    </a>
     <div class="video-meta">
       <span class="view-counter">👁️ 8.9k views</span>
       <span>❤️ 95%</span>
@@ -490,8 +451,11 @@ body { display: flex; flex-direction: column; }
   </div>
 
   <div class="video-card">
-    <div class="video-heading"><img src="student.JPG" alt="Students and sex" loading="lazy"><p>Students and sex</p></div>
-    <video controls><source src="student.mp4" type="video/mp4"></video>
+    <a href="student.mp4" class="video-link">
+      <img src="student.JPG" alt="Students and sex" loading="lazy">
+      <p>Students and sex</p>
+      <video controls><source src="student.mp4" type="video/mp4"></video>
+    </a>
     <div class="video-meta">
       <span class="view-counter">👁️ 22.5k views</span>
       <span>❤️ 99%</span>
@@ -501,8 +465,11 @@ body { display: flex; flex-direction: column; }
   </div>
 
   <div class="video-card">
-    <div class="video-heading"><img src="cum.jpg" alt="Yes baby make me cum" loading="lazy"><p>Yes baby make me cum</p></div>
-    <video controls><source src="cum.mp4" type="video/mp4"></video>
+    <a href="cum.mp4" class="video-link">
+      <img src="cum.jpg" alt="Yes baby make me cum" loading="lazy">
+      <p>Yes baby make me cum</p>
+      <video controls><source src="cum.mp4" type="video/mp4"></video>
+    </a>
     <div class="video-meta">
       <span class="view-counter">👁️ 19.1k views</span>
       <span>❤️ 97%</span>
@@ -512,8 +479,11 @@ body { display: flex; flex-direction: column; }
   </div>
 
   <div class="video-card">
-    <div class="video-heading"><img src="mzansinetball.jpg" alt="Netball is fun with sex" loading="lazy"><p>Netball is fun with sex</p></div>
-    <video controls><source src="mzansinetball.mp4" type="video/mp4"></video>
+    <a href="mzansinetball.mp4" class="video-link">
+      <img src="mzansinetball.jpg" alt="Netball is fun with sex" loading="lazy">
+      <p>Netball is fun with sex</p>
+      <video controls><source src="mzansinetball.mp4" type="video/mp4"></video>
+    </a>
     <div class="video-meta">
       <span class="view-counter">👁️ 11.4k views</span>
       <span>❤️ 94%</span>
@@ -523,8 +493,11 @@ body { display: flex; flex-direction: column; }
   </div>
 
   <div class="video-card">
-    <div class="video-heading"><img src="gym.jpg" alt="Sexy body from sexy stretching" loading="lazy"><p>Sexy body from sexy stretching</p></div>
-    <video controls><source src="gym.mp4" type="video/mp4"></video>
+    <a href="gym.mp4" class="video-link">
+      <img src="gym.jpg" alt="Sexy body from sexy stretching" loading="lazy">
+      <p>Sexy body from sexy stretching</p>
+      <video controls><source src="gym.mp4" type="video/mp4"></video>
+    </a>
     <div class="video-meta">
       <span class="view-counter">👁️ 16.8k views</span>
       <span>❤️ 96%</span>
@@ -534,8 +507,11 @@ body { display: flex; flex-direction: column; }
   </div>
 
   <div class="video-card">
-    <div class="video-heading"><img src="backshots.jpg" alt="Backshots of backshots" loading="lazy"><p>Backshots of backshots</p></div>
-    <video controls><source src="backshots.mp4" type="video/mp4"></video>
+    <a href="backshots.mp4" class="video-link">
+      <img src="backshots.jpg" alt="Backshots of backshots" loading="lazy">
+      <p>Backshots of backshots</p>
+      <video controls><source src="backshots.mp4" type="video/mp4"></video>
+    </a>
     <div class="video-meta">
       <span class="view-counter">👁️ 31.0k views</span>
       <span>❤️ 99%</span>
@@ -545,8 +521,11 @@ body { display: flex; flex-direction: column; }
   </div>
 
   <div class="video-card">
-    <div class="video-heading"><img src="mzansi6.JPG" alt="Colored is sexy 2" loading="lazy"><p>Colored is sexy 2</p></div>
-    <video controls><source src="mzansi6.mp4" type="video/mp4"></video>
+    <a href="mzansi6.mp4" class="video-link">
+      <img src="mzansi6.JPG" alt="Colored is sexy 2" loading="lazy">
+      <p>Colored is sexy 2</p>
+      <video controls><source src="mzansi6.mp4" type="video/mp4"></video>
+    </a>
     <div class="video-meta">
       <span class="view-counter">👁️ 9.3k views</span>
       <span>❤️ 92%</span>
@@ -556,8 +535,11 @@ body { display: flex; flex-direction: column; }
   </div>
 
   <div class="video-card">
-    <div class="video-heading"><img src="ugandian_2023-05-19_13-01-57.jpg" alt="Ugandian lady fucked so bad" loading="lazy"><p>Ugandian lady fucked so bad</p></div>
-    <video controls><source src="ugandian.mp4" type="video/mp4"></video>
+    <a href="ugandian.mp4" class="video-link">
+      <img src="ugandian_2023-05-19_13-01-57.jpg" alt="Ugandian lady fucked so bad" loading="lazy">
+      <p>Ugandian lady fucked so bad</p>
+      <video controls><source src="ugandian.mp4" type="video/mp4"></video>
+    </a>
     <div class="video-meta">
       <span class="view-counter">👁️ 27.4k views</span>
       <span>❤️ 98%</span>
@@ -567,8 +549,11 @@ body { display: flex; flex-direction: column; }
   </div>
 
   <div class="video-card">
-    <div class="video-heading"><img src="cum2.JPG" alt="Me or Ferrari" loading="lazy"><p>Me or Ferrari</p></div>
-    <video controls><source src="cum2.mp4" type="video/mp4"></video>
+    <a href="cum2.mp4" class="video-link">
+      <img src="cum2.JPG" alt="Me or Ferrari" loading="lazy">
+      <p>Me or Ferrari</p>
+      <video controls><source src="cum2.mp4" type="video/mp4"></video>
+    </a>
     <div class="video-meta">
       <span class="view-counter">👁️ 15.6k views</span>
       <span>❤️ 95%</span>
@@ -578,8 +563,11 @@ body { display: flex; flex-direction: column; }
   </div>
 
   <div class="video-card">
-    <div class="video-heading"><img src="zodwa.jpg" alt="Zodwa Wabantu pantyless show off" loading="lazy"><p>Zodwa Wabantu pantyless show off</p></div>
-    <video controls><source src="zodwa.mp4" type="video/mp4"></video>
+    <a href="zodwa.mp4" class="video-link">
+      <img src="zodwa.jpg" alt="Zodwa Wabantu pantyless show off" loading="lazy">
+      <p>Zodwa Wabantu pantyless show off</p>
+      <video controls><source src="zodwa.mp4" type="video/mp4"></video>
+    </a>
     <div class="video-meta">
       <span class="view-counter">👁️ 42.1k views</span>
       <span>❤️ 93%</span>
@@ -589,8 +577,11 @@ body { display: flex; flex-direction: column; }
   </div>
 
   <div class="video-card">
-    <div class="video-heading"><img src="twitter_20230114_061651.jpg" alt="Wild Indian on the scene" loading="lazy"><p>Wild Indian on the scene</p></div>
-    <video controls><source src="twitter_20230114_061651.mp4" type="video/mp4"></video>
+    <a href="twitter_20230114_061651.mp4" class="video-link">
+      <img src="twitter_20230114_061651.jpg" alt="Wild Indian on the scene" loading="lazy">
+      <p>Wild Indian on the scene</p>
+      <video controls><source src="twitter_20230114_061651.mp4" type="video/mp4"></video>
+    </a>
     <div class="video-meta">
       <span class="view-counter">👁️ 18.3k views</span>
       <span>❤️ 96%</span>
@@ -602,6 +593,16 @@ body { display: flex; flex-direction: column; }
 </div>
 
 
+
+<!-- Clearly labelled sponsor banner appears after five different video cards are viewed. -->
+<div id="sponsor-banner" aria-label="Sponsored link" aria-hidden="true">
+  <div class="sponsor-copy">
+    <strong>Sponsored</strong>
+    <small>Thanks for watching — support this site.</small>
+  </div>
+  <a id="sponsor-banner-link" href="https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38" target="_blank" rel="noopener noreferrer">Visit sponsor</a>
+  <button type="button" id="close-sponsor-banner" aria-label="Close sponsor banner">×</button>
+</div>
 
 <br>
 <hr>
@@ -667,43 +668,13 @@ function triggerFakeDownload(button) {
 
 
 
-// Autoplay the currently visible video in the vertical snap feed and pause all others.
-function initScrollFeed() {
-  const container = document.getElementById('display');
-  const videos = Array.from(document.querySelectorAll('#display .video-card video'));
-  if (!container || !videos.length || !('IntersectionObserver' in window)) return;
-
-  videos.forEach(video => {
-    video.muted = true;          // required for reliable autoplay in modern browsers
-    video.defaultMuted = true;
-    video.playsInline = true;
-    video.loop = true;
-    video.preload = 'auto';
-  });
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      const video = entry.target.querySelector('video');
-      if (!video) return;
-      if (entry.isIntersecting && entry.intersectionRatio >= 0.65) {
-        videos.forEach(other => { if (other !== video) other.pause(); });
-        const playAttempt = video.play();
-        if (playAttempt && typeof playAttempt.catch === 'function') playAttempt.catch(() => {});
-      } else {
-        video.pause();
-      }
-    });
-  }, { root: container, threshold: [0, 0.35, 0.65, 0.85] });
-
-  videos.forEach(video => observer.observe(video.closest('.video-card')));
-}
-
-// Pop-under trigger: after five different MP4 videos actually start playing,
-// the next user click anywhere attempts to open the sponsor landing page in a
-// background tab. The visitor's original click is not cancelled or redirected.
+// Show a small, clearly labelled sponsor banner after five distinct video cards
+// have entered the viewport. It does not hijack clicks elsewhere on the page.
 function initSponsorCheckpoint() {
-  const videos = Array.from(document.querySelectorAll('#display .video-card video'));
-  if (!videos.length) return;
+  const cards = Array.from(document.querySelectorAll('#display .video-card'));
+  const banner = document.getElementById('sponsor-banner');
+  const closeButton = document.getElementById('close-sponsor-banner');
+  if (!cards.length || !banner || !closeButton) return;
 
   const storageKey = 'hornymzansi_sponsor_checkpoint_last_shown';
   const cooldownMs = 60 * 60 * 1000;
@@ -711,29 +682,48 @@ function initSponsorCheckpoint() {
   try { lastShown = Number(localStorage.getItem(storageKey) || 0); } catch (e) {}
   if (Date.now() - lastShown < cooldownMs) return;
 
-  const played = new Set();
-  let armed = false;
-  let opened = false;
-  const sponsorUrl = 'https://www.highcpmrevenuegate.com/sbinbbxg?key=ce5154cba328f3f0816978d619b0bf38';
-
-  videos.forEach(function (video) {
-    video.addEventListener('play', function () {
-      played.add(video);
-      if (played.size >= 5) armed = true;
-    }, { passive: true });
-  });
-
-  document.addEventListener('click', function () {
-    if (!armed || opened) return;
-    opened = true;
+  const viewed = new Set();
+  let alreadyShown = false;
+  function showBanner() {
+    if (alreadyShown) return;
+    alreadyShown = true;
     try { localStorage.setItem(storageKey, String(Date.now())); } catch (e) {}
-    // This is triggered by a real click, which is more likely to be allowed by
-    // popup blockers. Keep the main site open and preserve the clicked action.
-    const popup = window.open(sponsorUrl, '_blank', 'noopener,noreferrer');
-    if (popup) {
-      try { window.focus(); } catch (e) {}
+    banner.classList.add('is-visible');
+    banner.setAttribute('aria-hidden', 'false');
+  }
+  function hideBanner() {
+    banner.classList.remove('is-visible');
+    banner.setAttribute('aria-hidden', 'true');
+  }
+  closeButton.addEventListener('click', hideBanner);
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.35) {
+          viewed.add(entry.target);
+          if (viewed.size >= 5) {
+            observer.disconnect();
+            showBanner();
+          }
+        }
+      });
+    }, { threshold: [0.35, 0.5] });
+    cards.forEach(function (card) { observer.observe(card); });
+  } else {
+    function checkCards() {
+      cards.forEach(function (card) {
+        const rect = card.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.8 && rect.bottom > window.innerHeight * 0.2) viewed.add(card);
+      });
+      if (viewed.size >= 5) {
+        window.removeEventListener('scroll', checkCards);
+        showBanner();
+      }
     }
-  }, true);
+    window.addEventListener('scroll', checkCards, { passive: true });
+    checkCards();
+  }
 }
 
 // Live View Counter Script
@@ -769,7 +759,6 @@ function initLiveViewCounters() {
 window.onload = function() {
   initRotatingAd();
   initLiveViewCounters();
-  initScrollFeed();
   initSponsorCheckpoint();
 };
 </script>
