@@ -317,6 +317,100 @@ hr {
 }
 
 
+
+
+/* Vertical swipe video feed: one MP4 per snap position */
+html, body { height: 100%; }
+body { height: 100dvh; overflow: hidden; }
+#mainp { position: relative; flex: 0 0 auto; padding: 6px 12px; }
+#mainp h2 { font-size: 19px; margin: 0 0 3px; }
+#mainp table { max-width: 520px; }
+#mainp td h3 { padding: 6px 10px; font-size: 13px; }
+body { display: flex; flex-direction: column; }
+#display {
+  flex: 1 1 auto;
+  min-height: 0;
+  height: auto;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior-y: contain;
+  scroll-snap-type: y mandatory;
+  -webkit-overflow-scrolling: touch;
+  background: #000;
+}
+#display .video-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: hidden;
+  display: block;
+  background: #000;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+#display .video-card video {
+  display: block !important;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #000;
+  z-index: 1;
+}
+#display .video-heading { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+#display .video-heading img { display: none !important; }
+#display .video-heading p {
+  position: absolute;
+  left: 12px;
+  right: 88px;
+  bottom: 18px;
+  padding: 10px 12px;
+  margin: 0;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  text-shadow: 0 2px 6px #000;
+  background: linear-gradient(transparent, rgba(0,0,0,.72));
+}
+#display .video-meta {
+  position: absolute;
+  z-index: 3;
+  left: 12px;
+  bottom: 72px;
+  display: flex;
+  gap: 12px;
+  color: #fff;
+  text-shadow: 0 1px 4px #000;
+  pointer-events: none;
+}
+#display .download-hd-btn {
+  position: relative;
+  z-index: 5;
+  float: right;
+  margin: 12px;
+}
+#display .download-status { position: absolute; z-index: 5; right: 12px; top: 52px; }
+#display .video-card:hover { transform: none; }
+@media (max-width: 600px) {
+  #mainp { padding: 5px 8px; }
+  #mainp h2 { font-size: 17px; }
+  #mainp td { padding: 0 3px; }
+  #mainp td h3 { padding: 6px 5px; font-size: 12px; }
+  #display .video-heading p { font-size: 14px; bottom: 16px; }
+}
+
 </style>
 </head>
 
@@ -374,11 +468,8 @@ hr {
 <div id="display">
 
   <div class="video-card">
-    <a href="riding two.mp4" class="video-link">
-      <img src="riding two.JPG" alt="Buhle shows off kuku" loading="lazy">
-      <p>Buhle shows off kuku</p>
-      <video controls><source src="riding two.mp4" type="video/mp4"></video>
-    </a>
+    <div class="video-heading"><img src="riding two.JPG" alt="Buhle shows off kuku" loading="lazy"><p>Buhle shows off kuku</p></div>
+    <video controls><source src="riding two.mp4" type="video/mp4"></video>
     <div class="video-meta">
       <span class="view-counter">👁️ 14.2k views</span>
       <span>❤️ 98%</span>
@@ -388,11 +479,8 @@ hr {
   </div>
 
   <div class="video-card">
-    <a href="mzansi5.mp4" class="video-link">
-      <img src="mzansi5.JPG" alt="Colored is sexy" loading="lazy">
-      <p>Colored is sexy</p>
-      <video controls><source src="mzansi5.mp4" type="video/mp4"></video>
-    </a>
+    <div class="video-heading"><img src="mzansi5.JPG" alt="Colored is sexy" loading="lazy"><p>Colored is sexy</p></div>
+    <video controls><source src="mzansi5.mp4" type="video/mp4"></video>
     <div class="video-meta">
       <span class="view-counter">👁️ 8.9k views</span>
       <span>❤️ 95%</span>
@@ -402,11 +490,8 @@ hr {
   </div>
 
   <div class="video-card">
-    <a href="student.mp4" class="video-link">
-      <img src="student.JPG" alt="Students and sex" loading="lazy">
-      <p>Students and sex</p>
-      <video controls><source src="student.mp4" type="video/mp4"></video>
-    </a>
+    <div class="video-heading"><img src="student.JPG" alt="Students and sex" loading="lazy"><p>Students and sex</p></div>
+    <video controls><source src="student.mp4" type="video/mp4"></video>
     <div class="video-meta">
       <span class="view-counter">👁️ 22.5k views</span>
       <span>❤️ 99%</span>
@@ -416,11 +501,8 @@ hr {
   </div>
 
   <div class="video-card">
-    <a href="cum.mp4" class="video-link">
-      <img src="cum.jpg" alt="Yes baby make me cum" loading="lazy">
-      <p>Yes baby make me cum</p>
-      <video controls><source src="cum.mp4" type="video/mp4"></video>
-    </a>
+    <div class="video-heading"><img src="cum.jpg" alt="Yes baby make me cum" loading="lazy"><p>Yes baby make me cum</p></div>
+    <video controls><source src="cum.mp4" type="video/mp4"></video>
     <div class="video-meta">
       <span class="view-counter">👁️ 19.1k views</span>
       <span>❤️ 97%</span>
@@ -430,11 +512,8 @@ hr {
   </div>
 
   <div class="video-card">
-    <a href="mzansinetball.mp4" class="video-link">
-      <img src="mzansinetball.jpg" alt="Netball is fun with sex" loading="lazy">
-      <p>Netball is fun with sex</p>
-      <video controls><source src="mzansinetball.mp4" type="video/mp4"></video>
-    </a>
+    <div class="video-heading"><img src="mzansinetball.jpg" alt="Netball is fun with sex" loading="lazy"><p>Netball is fun with sex</p></div>
+    <video controls><source src="mzansinetball.mp4" type="video/mp4"></video>
     <div class="video-meta">
       <span class="view-counter">👁️ 11.4k views</span>
       <span>❤️ 94%</span>
@@ -444,11 +523,8 @@ hr {
   </div>
 
   <div class="video-card">
-    <a href="gym.mp4" class="video-link">
-      <img src="gym.jpg" alt="Sexy body from sexy stretching" loading="lazy">
-      <p>Sexy body from sexy stretching</p>
-      <video controls><source src="gym.mp4" type="video/mp4"></video>
-    </a>
+    <div class="video-heading"><img src="gym.jpg" alt="Sexy body from sexy stretching" loading="lazy"><p>Sexy body from sexy stretching</p></div>
+    <video controls><source src="gym.mp4" type="video/mp4"></video>
     <div class="video-meta">
       <span class="view-counter">👁️ 16.8k views</span>
       <span>❤️ 96%</span>
@@ -458,11 +534,8 @@ hr {
   </div>
 
   <div class="video-card">
-    <a href="backshots.mp4" class="video-link">
-      <img src="backshots.jpg" alt="Backshots of backshots" loading="lazy">
-      <p>Backshots of backshots</p>
-      <video controls><source src="backshots.mp4" type="video/mp4"></video>
-    </a>
+    <div class="video-heading"><img src="backshots.jpg" alt="Backshots of backshots" loading="lazy"><p>Backshots of backshots</p></div>
+    <video controls><source src="backshots.mp4" type="video/mp4"></video>
     <div class="video-meta">
       <span class="view-counter">👁️ 31.0k views</span>
       <span>❤️ 99%</span>
@@ -472,11 +545,8 @@ hr {
   </div>
 
   <div class="video-card">
-    <a href="mzansi6.mp4" class="video-link">
-      <img src="mzansi6.JPG" alt="Colored is sexy 2" loading="lazy">
-      <p>Colored is sexy 2</p>
-      <video controls><source src="mzansi6.mp4" type="video/mp4"></video>
-    </a>
+    <div class="video-heading"><img src="mzansi6.JPG" alt="Colored is sexy 2" loading="lazy"><p>Colored is sexy 2</p></div>
+    <video controls><source src="mzansi6.mp4" type="video/mp4"></video>
     <div class="video-meta">
       <span class="view-counter">👁️ 9.3k views</span>
       <span>❤️ 92%</span>
@@ -486,11 +556,8 @@ hr {
   </div>
 
   <div class="video-card">
-    <a href="ugandian.mp4" class="video-link">
-      <img src="ugandian_2023-05-19_13-01-57.jpg" alt="Ugandian lady fucked so bad" loading="lazy">
-      <p>Ugandian lady fucked so bad</p>
-      <video controls><source src="ugandian.mp4" type="video/mp4"></video>
-    </a>
+    <div class="video-heading"><img src="ugandian_2023-05-19_13-01-57.jpg" alt="Ugandian lady fucked so bad" loading="lazy"><p>Ugandian lady fucked so bad</p></div>
+    <video controls><source src="ugandian.mp4" type="video/mp4"></video>
     <div class="video-meta">
       <span class="view-counter">👁️ 27.4k views</span>
       <span>❤️ 98%</span>
@@ -500,11 +567,8 @@ hr {
   </div>
 
   <div class="video-card">
-    <a href="cum2.mp4" class="video-link">
-      <img src="cum2.JPG" alt="Me or Ferrari" loading="lazy">
-      <p>Me or Ferrari</p>
-      <video controls><source src="cum2.mp4" type="video/mp4"></video>
-    </a>
+    <div class="video-heading"><img src="cum2.JPG" alt="Me or Ferrari" loading="lazy"><p>Me or Ferrari</p></div>
+    <video controls><source src="cum2.mp4" type="video/mp4"></video>
     <div class="video-meta">
       <span class="view-counter">👁️ 15.6k views</span>
       <span>❤️ 95%</span>
@@ -514,11 +578,8 @@ hr {
   </div>
 
   <div class="video-card">
-    <a href="zodwa.mp4" class="video-link">
-      <img src="zodwa.jpg" alt="Zodwa Wabantu pantyless show off" loading="lazy">
-      <p>Zodwa Wabantu pantyless show off</p>
-      <video controls><source src="zodwa.mp4" type="video/mp4"></video>
-    </a>
+    <div class="video-heading"><img src="zodwa.jpg" alt="Zodwa Wabantu pantyless show off" loading="lazy"><p>Zodwa Wabantu pantyless show off</p></div>
+    <video controls><source src="zodwa.mp4" type="video/mp4"></video>
     <div class="video-meta">
       <span class="view-counter">👁️ 42.1k views</span>
       <span>❤️ 93%</span>
@@ -528,11 +589,8 @@ hr {
   </div>
 
   <div class="video-card">
-    <a href="twitter_20230114_061651.mp4" class="video-link">
-      <img src="twitter_20230114_061651.jpg" alt="Wild Indian on the scene" loading="lazy">
-      <p>Wild Indian on the scene</p>
-      <video controls><source src="twitter_20230114_061651.mp4" type="video/mp4"></video>
-    </a>
+    <div class="video-heading"><img src="twitter_20230114_061651.jpg" alt="Wild Indian on the scene" loading="lazy"><p>Wild Indian on the scene</p></div>
+    <video controls><source src="twitter_20230114_061651.mp4" type="video/mp4"></video>
     <div class="video-meta">
       <span class="view-counter">👁️ 18.3k views</span>
       <span>❤️ 96%</span>
@@ -609,6 +667,37 @@ function triggerFakeDownload(button) {
 
 
 
+// Autoplay the currently visible video in the vertical snap feed and pause all others.
+function initScrollFeed() {
+  const container = document.getElementById('display');
+  const videos = Array.from(document.querySelectorAll('#display .video-card video'));
+  if (!container || !videos.length || !('IntersectionObserver' in window)) return;
+
+  videos.forEach(video => {
+    video.muted = true;          // required for reliable autoplay in modern browsers
+    video.defaultMuted = true;
+    video.playsInline = true;
+    video.loop = true;
+    video.preload = 'auto';
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const video = entry.target.querySelector('video');
+      if (!video) return;
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.65) {
+        videos.forEach(other => { if (other !== video) other.pause(); });
+        const playAttempt = video.play();
+        if (playAttempt && typeof playAttempt.catch === 'function') playAttempt.catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+  }, { root: container, threshold: [0, 0.35, 0.65, 0.85] });
+
+  videos.forEach(video => observer.observe(video.closest('.video-card')));
+}
+
 // Pop-under trigger: after five different MP4 videos actually start playing,
 // the next user click anywhere attempts to open the sponsor landing page in a
 // background tab. The visitor's original click is not cancelled or redirected.
@@ -680,6 +769,7 @@ function initLiveViewCounters() {
 window.onload = function() {
   initRotatingAd();
   initLiveViewCounters();
+  initScrollFeed();
   initSponsorCheckpoint();
 };
 </script>
